@@ -1,0 +1,4240 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Co Reno M&D - منصة الترميم المستدام</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Tajawal:wght@300;400;500;700;800&display=swap">
+    
+    <style>
+    /* تنسيق مُبدل اللغة في الجوال */
+    .mobile-language-switcher {
+        padding: 20px;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        margin: 10px 0;
+    }
+
+    .mobile-language-switcher .language-switcher {
+        position: relative;
+        width: 100%;
+    }
+
+    .mobile-language-switcher .language-btn {
+        width: 100%;
+        background: rgba(255, 255, 255, 0.1);
+        border: 1px solid rgba(255, 255, 255, 0.2);
+        color: white;
+        padding: 12px 15px;
+        border-radius: 8px;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        transition: var(--transition);
+    }
+
+    .mobile-language-switcher .language-btn:hover {
+        background: rgba(255, 255, 255, 0.2);
+    }
+
+    .mobile-language-switcher .language-dropdown {
+        position: static;
+        width: 100%;
+        margin-top: 10px;
+        display: none;
+        background: white;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+
+    .mobile-language-switcher .language-switcher:hover .language-dropdown {
+        display: block;
+    }
+
+    .mobile-language-switcher .language-dropdown a {
+        padding: 12px 15px;
+        color: var(--text-color);
+        text-decoration: none;
+        display: block;
+        transition: var(--transition);
+        border-bottom: 1px solid #eee;
+    }
+
+    .mobile-language-switcher .language-dropdown a:last-child {
+        border-bottom: none;
+    }
+
+    .mobile-language-switcher .language-dropdown a:hover {
+        background: var(--light-color);
+        color: var(--primary-color);
+    }
+    @media (max-width: 480px) {
+        .mobile-language-switcher {
+            padding: 15px;
+        }
+        
+        .mobile-language-switcher .language-btn {
+            padding: 10px 12px;
+            font-size: 0.9rem;
+        }
+        
+        .mobile-language-switcher .language-dropdown a {
+            padding: 10px 12px;
+            font-size: 0.9rem;
+        }
+    }
+
+    .mobile-nav {
+        padding: 1rem;
+    }
+
+    .mobile-nav ul {
+        margin-bottom: 0;
+    }
+
+    .mobile-auth-buttons {
+        margin-top: 0;
+        padding: 0 1rem;
+    }
+    
+    :root {
+        --primary-color: #2ecc71;
+        --secondary-color: #27ae60;
+        --dark-color: #2c3e50;
+        --light-color: #ecf0f1;
+        --accent-color: #e74c3c;
+        --text-color: #333;
+        --text-light: #7f8c8d;
+        --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        --transition: all 0.3s ease;
+        --border-radius: 8px;
+    }
+
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: 'Tajawal', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    }
+
+    body {
+        background-color: #f5f5f5;
+        color: var(--text-color);
+        line-height: 1.6;
+        overflow-x: hidden;
+    }
+
+    .container {
+        max-width: 1400px;
+        margin: 0 auto;
+        padding: 0 15px;
+    }
+
+    .section-padding {
+        padding: 5rem 0;
+    }
+
+    .text-center {
+        text-align: center;
+    }
+
+    /* Header Styles */
+    header {
+        background-color: var(--dark-color);
+        color: white;
+        padding: 1rem 0;
+        position: fixed;
+        width: 100%;
+        top: 0;
+        z-index: 1000;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+    }
+
+    .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+
+    .logo {
+        display: flex;
+        align-items: center;
+        font-size: 1.5rem;
+        font-weight: 800;
+        color: white;
+        text-decoration: none;
+    }
+
+    .logo i {
+        color: var(--primary-color);
+        margin-left: 10px;
+        font-size: 1.8rem;
+    }
+
+    .logo span {
+        color: var(--primary-color);
+    }
+
+    nav ul {
+        display: flex;
+        list-style: none;
+    }
+
+    nav ul li {
+        margin-right: 1.5rem;
+    }
+
+    nav ul li a {
+        color: white;
+        text-decoration: none;
+        font-weight: 500;
+        transition: var(--transition);
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+    }
+
+    nav ul li a:hover {
+        background-color: var(--primary-color);
+    }
+
+    .auth-buttons {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .btn {
+        padding: 0.6rem 1.2rem;
+        border-radius: var(--border-radius);
+        font-weight: 500;
+        cursor: pointer;
+        transition: var(--transition);
+        border: none;
+        font-size: 0.9rem;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .btn i {
+        margin-left: 5px;
+    }
+
+    .btn-primary {
+        background-color: var(--primary-color);
+        color: white;
+    }
+
+    .btn-primary:hover {
+        background-color: var(--secondary-color);
+        transform: translateY(-2px);
+    }
+
+    .btn-outline {
+        background-color: transparent;
+        border: 1px solid white;
+        color: white;
+    }
+
+    .btn-outline:hover {
+        background-color: white;
+        color: var(--dark-color);
+    }
+
+    .mobile-menu-btn {
+        display: none;
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+
+    /* Hero Section */
+    .hero {
+        height: 90vh;
+        background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1000&q=80') no-repeat center center/cover;
+        color: white;
+        display: flex;
+        align-items: center;
+        margin-top: 0px;
+    }
+
+    .hero-content {
+        width: 100%;
+    }
+
+    .hero h1 {
+        font-size: 3rem;
+        margin-bottom: 1rem;
+        line-height: 1.2;
+    }
+
+    .hero p {
+        font-size: 1.2rem;
+        margin-bottom: 2rem;
+        max-width: 600px;
+    }
+
+    .search-bar {
+        display: flex;
+        max-width: 600px;
+        margin-top: 2rem;
+    }
+
+    .search-bar input {
+        flex: 1;
+        padding: 1rem;
+        border: none;
+        border-radius: var(--border-radius) 0 0 var(--border-radius);
+        font-size: 1rem;
+    }
+
+    .search-bar button {
+        padding: 0 1.5rem;
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        cursor: pointer;
+        transition: var(--transition);
+    }
+
+    .search-bar button:hover {
+        background-color: var(--secondary-color);
+    }
+
+    /* Features Section */
+    .features {
+        background-color: white;
+    }
+
+    .section-title {
+        text-align: center;
+        margin-bottom: 3rem;
+        position: relative;
+    }
+
+    .section-title h2 {
+        font-size: 2.5rem;
+        color: var(--dark-color);
+        display: inline-block;
+    }
+
+    .section-title h2::after {
+        content: '';
+        position: absolute;
+        width: 80px;
+        height: 4px;
+        background-color: var(--primary-color);
+        bottom: -10px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+
+    .features-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 2rem;
+    }
+
+    .feature-card {
+        background-color: var(--light-color);
+        padding: 2rem;
+        border-radius: var(--border-radius);
+        text-align: center;
+        transition: var(--transition);
+        box-shadow: var(--shadow);
+    }
+
+    .feature-card:hover {
+        transform: translateY(-10px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .feature-card i {
+        font-size: 3rem;
+        color: var(--primary-color);
+        margin-bottom: 1.5rem;
+    }
+
+    .feature-card h3 {
+        font-size: 1.5rem;
+        margin-bottom: 1rem;
+        color: var(--dark-color);
+    }
+
+    /* Marketplace Section */
+    .marketplace {
+        background-color: #f9f9f9;
+    }
+
+    .products-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 2rem;
+    }
+
+    .product-card {
+        background-color: white;
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+        position: relative;
+    }
+
+    .product-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .product-image {
+        height: 200px;
+        overflow: hidden;
+    }
+
+    .product-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: var(--transition);
+    }
+
+    .product-card:hover .product-image img {
+        transform: scale(1.05);
+    }
+
+    .product-info {
+        padding: 1.5rem;
+    }
+
+    .product-info h3 {
+        margin-bottom: 0.5rem;
+        font-size: 1.2rem;
+    }
+
+    .product-info p {
+        color: var(--text-light);
+        margin-bottom: 1rem;
+        font-size: 0.9rem;
+    }
+
+    .product-price {
+        font-weight: bold;
+        color: var(--primary-color);
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+        display: block;
+    }
+
+    .eco-badge {
+        position: absolute;
+        top: 10px;
+        right: 10px;
+        background-color: var(--primary-color);
+        color: white;
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: bold;
+    }
+
+    /* How It Works Section */
+    .how-it-works {
+        background-color: white;
+    }
+
+    .steps {
+        display: flex;
+        justify-content: space-between;
+        position: relative;
+    }
+
+    .step {
+        text-align: center;
+        flex: 1;
+        position: relative;
+        z-index: 1;
+    }
+
+    .step-number {
+        width: 60px;
+        height: 60px;
+        background-color: var(--primary-color);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        font-weight: bold;
+        margin: 0 auto 1.5rem;
+        transition: var(--transition);
+    }
+
+    .step:hover .step-number {
+        transform: scale(1.1);
+        background-color: var(--secondary-color);
+    }
+
+    .step h3 {
+        margin-bottom: 1rem;
+        color: var(--dark-color);
+    }
+
+    .step p {
+        color: var(--text-light);
+        max-width: 250px;
+        margin: 0 auto;
+    }
+
+    .steps::before {
+        content: '';
+        position: absolute;
+        top: 30px;
+        left: 0;
+        right: 0;
+        height: 3px;
+        background-color: var(--light-color);
+        z-index: 0;
+    }
+
+    /* Testimonials Section */
+    .testimonials {
+        background-color: #f9f9f9;
+    }
+
+    .testimonials-slider {
+        position: relative;
+        overflow: hidden;
+    }
+
+    .testimonials-container {
+        display: flex;
+        transition: transform 0.5s ease;
+    }
+
+    .testimonial {
+        min-width: 100%;
+        padding: 2rem;
+        text-align: center;
+    }
+
+    .testimonial-content {
+        background-color: white;
+        padding: 2rem;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow);
+        position: relative;
+    }
+
+    .testimonial-content::before {
+        content: '\201C';
+        font-size: 5rem;
+        color: var(--light-color);
+        position: absolute;
+        top: 10px;
+        right: 20px;
+        line-height: 1;
+    }
+
+    .testimonial-text {
+        font-size: 1.1rem;
+        font-style: italic;
+        margin-bottom: 1.5rem;
+        position: relative;
+        z-index: 1;
+    }
+
+    .testimonial-author {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+
+    .author-avatar {
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-left: 1rem;
+    }
+
+    .author-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .author-info h4 {
+        margin-bottom: 0.3rem;
+        color: var(--dark-color);
+    }
+
+    .author-info p {
+        color: var(--text-light);
+        font-size: 0.9rem;
+    }
+
+    .testimonial-rating {
+        color: #f39c12;
+        margin-top: 0.5rem;
+    }
+
+    .slider-controls {
+        display: flex;
+        justify-content: center;
+        margin-top: 2rem;
+        gap: 1rem;
+    }
+
+    .slider-dot {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background-color: #ddd;
+        cursor: pointer;
+        transition: var(--transition);
+    }
+
+    .slider-dot.active {
+        background-color: var(--primary-color);
+    }
+
+    /* Partners Section */
+    .partners {
+        background-color: white;
+    }
+
+    .partners-grid {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 3rem;
+    }
+
+    .partner-logo {
+        height: 100px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        filter: grayscale(100%);
+        opacity: 0.7;
+        transition: var(--transition);
+        padding: 1.5rem;
+        background: white;
+        border-radius: 8px;
+        border: 1px solid #eee;
+        gap: 0.5rem;
+    }
+
+    .partner-logo:hover {
+        filter: grayscale(0);
+        opacity: 1;
+        transform: scale(1.05);
+        box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    }
+
+    .partner-logo i {
+        color: var(--primary-color);
+    }
+
+    .logo-name {
+        font-size: 0.9rem;
+        font-weight: bold;
+        color: var(--dark-color);
+        text-align: center;
+    }
+    
+    /* CTA Section */
+    .cta {
+        background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
+        color: white;
+        text-align: center;
+    }
+
+    .cta h2 {
+        font-size: 2.5rem;
+        margin-bottom: 1.5rem;
+    }
+
+    .cta p {
+        font-size: 1.2rem;
+        max-width: 700px;
+        margin: 0 auto 2rem;
+    }
+
+    .cta-buttons {
+        display: flex;
+        justify-content: center;
+        gap: 1.5rem;
+    }
+
+    .cta .btn {
+        padding: 0.8rem 2rem;
+        font-size: 1rem;
+    }
+
+    .btn-white {
+        background-color: white;
+        color: var(--primary-color);
+    }
+
+    .btn-white:hover {
+        background-color: #f1f1f1;
+    }
+
+    .btn-transparent {
+        background-color: transparent;
+        border: 2px solid white;
+        color: white;
+    }
+
+    .btn-transparent:hover {
+        background-color: rgba(255, 255, 255, 0.1);
+    }
+
+    /* Footer */
+    footer {
+        background-color: var(--dark-color);
+        color: white;
+        padding: 4rem 0 2rem;
+    }
+
+    .footer-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+    }
+
+    .footer-logo {
+        font-size: 1.8rem;
+        font-weight: bold;
+        margin-bottom: 1.5rem;
+        display: inline-block;
+    }
+
+    .footer-logo span {
+        color: var(--primary-color);
+    }
+
+    .footer-about p {
+        margin-bottom: 1.5rem;
+        color: #bdc3c7;
+    }
+
+    .social-links {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .social-links a {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 40px;
+        height: 40px;
+        background-color: rgba(255, 255, 255, 0.1);
+        border-radius: 50%;
+        color: white;
+        transition: var(--transition);
+    }
+
+    .social-links a:hover {
+        background-color: var(--primary-color);
+        transform: translateY(-3px);
+    }
+
+    .footer-links h3 {
+        font-size: 1.2rem;
+        margin-bottom: 1.5rem;
+        position: relative;
+        padding-bottom: 0.5rem;
+    }
+
+    .footer-links h3::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 40px;
+        height: 2px;
+        background-color: var(--primary-color);
+    }
+
+    .footer-links ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .footer-links li {
+        margin-bottom: 0.8rem;
+    }
+
+    .footer-links a {
+        color: #bdc3c7;
+        text-decoration: none;
+        transition: var(--transition);
+    }
+
+    .footer-links a:hover {
+        color: var(--primary-color);
+        padding-right: 5px;
+    }
+
+    .footer-contact p {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+        color: #bdc3c7;
+    }
+
+    .footer-contact i {
+        margin-left: 0.5rem;
+        color: var(--primary-color);
+    }
+
+    .footer-bottom {
+        text-align: center;
+        padding-top: 2rem;
+        margin-top: 2rem;
+        border-top: 1px solid rgba(255, 255, 255, 0.1);
+        color: #bdc3c7;
+        font-size: 0.9rem;
+    }
+
+    /* Language Switcher */
+    .language-switcher {
+        position: relative;
+        margin-right: 1rem;
+    }
+
+    .language-btn {
+        background: none;
+        border: none;
+        color: white;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        gap: 0.5rem;
+    }
+
+    .language-dropdown {
+        position: absolute;
+        top: 100%;
+        right: 0;
+        background-color: white;
+        border-radius: 4px;
+        box-shadow: var(--shadow);
+        padding: 0.5rem 0;
+        min-width: 120px;
+        display: none;
+        z-index: 100;
+    }
+
+    .language-switcher:hover .language-dropdown {
+        display: block;
+    }
+
+    .language-dropdown a {
+        display: block;
+        padding: 0.5rem 1rem;
+        color: var(--text-color);
+        text-decoration: none;
+        transition: var(--transition);
+    }
+
+    .language-dropdown a:hover {
+        background-color: var(--light-color);
+        color: var(--primary-color);
+    }
+
+    /* Mobile Navigation */
+    .mobile-nav {
+        position: fixed;
+        top: 0;
+        right: -300px;
+        width: 300px;
+        height: 100vh;
+        background-color: var(--dark-color);
+        z-index: 1000;
+        transition: var(--transition);
+        padding: 2rem;
+        overflow-y: auto;
+    }
+
+    .mobile-nav.active {
+        right: 0;
+    }
+
+    .mobile-nav-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 2rem;
+        padding: 0 1rem;
+    }
+
+    .close-mobile-menu {
+        background: none;
+        border: none;
+        color: white;
+        font-size: 1.5rem;
+        cursor: pointer;
+    }
+
+    .mobile-nav ul {
+        list-style: none;
+        padding: 0;
+    }
+
+    .mobile-nav li {
+        margin-bottom: 1rem;
+    }
+
+    .mobile-nav a {
+        color: white;
+        text-decoration: none;
+        font-size: 1.1rem;
+        display: block;
+        padding: 0.8rem 1rem;
+        border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+        transition: var(--transition);
+    }
+
+    .mobile-nav a:hover {
+        background-color: var(--primary-color);
+        padding-right: 1.5rem;
+    }
+
+    .mobile-auth-buttons {
+        margin-top: 2rem;
+        display: flex;
+        flex-direction: column;
+        gap: 1rem;
+        padding: 0 1rem;
+    }
+
+    .overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        z-index: 999;
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition);
+    }
+
+    .overlay.active {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    /* Responsive Styles */
+    @media (max-width: 1200px) {
+        .hero h1 {
+            font-size: 2.5rem;
+        }
+    }
+
+    @media (max-width: 992px) {
+        .steps {
+            flex-direction: column;
+            gap: 3rem;
+        }
+
+        .steps::before {
+            display: none;
+        }
+
+        .step {
+            display: flex;
+            text-align: right;
+            gap: 1.5rem;
+        }
+
+        .step-number {
+            margin: 0;
+            flex-shrink: 0;
+        }
+
+        .step-content {
+            text-align: right;
+        }
+
+        .hero h1 {
+            font-size: 2.2rem;
+        }
+    }
+
+    @media (max-width: 768px) {
+        nav ul, .auth-buttons {
+            display: none;
+        }
+
+        .mobile-menu-btn {
+            display: block;
+        }
+
+        .hero h1 {
+            font-size: 2rem;
+        }
+
+        .hero p {
+            font-size: 1rem;
+        }
+
+        .search-bar {
+            flex-direction: column;
+        }
+
+        .search-bar input {
+            border-radius: var(--border-radius);
+            margin-bottom: 0.5rem;
+        }
+
+        .search-bar button {
+            border-radius: var(--border-radius);
+            padding: 1rem;
+        }
+
+        .section-title h2 {
+            font-size: 2rem;
+        }
+
+        .cta h2 {
+            font-size: 2rem;
+        }
+
+        .cta-buttons {
+            flex-direction: column;
+            gap: 1rem;
+        }
+    }
+
+    @media (max-width: 576px) {
+        .header-container {
+            padding: 0 15px;
+        }
+
+        .hero {
+            padding: 0 1rem;
+            height: 80vh;
+        }
+
+        .hero h1 {
+            font-size: 1.8rem;
+        }
+
+        .section-padding {
+            padding: 3rem 0;
+        }
+
+        .footer-container {
+            grid-template-columns: 1fr;
+        }
+
+        .step {
+            flex-direction: column;
+            text-align: center;
+        }
+
+        .step-content {
+            text-align: center;
+        }
+    }
+
+    /* Animations */
+    @keyframes fadeIn {
+        from { opacity: 0; transform: translateY(20px); }
+        to { opacity: 1; transform: translateY(0); }
+    }
+
+    .fade-in {
+        animation: fadeIn 1s ease forwards;
+    }
+
+    .delay-1 {
+        animation-delay: 0.2s;
+    }
+
+    .delay-2 {
+        animation-delay: 0.4s;
+    }
+
+    .delay-3 {
+        animation-delay: 0.6s;
+    }
+
+    .delay-4 {
+        animation-delay: 0.8s;
+    }
+
+    /* Page Transitions */
+    .page {
+        display: none;
+        padding: 2rem 0;
+        margin: 6rem auto 2rem;
+        animation: fadeIn 0.5s ease;
+    }
+
+    .page.active {
+        display: block;
+    }
+
+    .page-title {
+        font-size: 2.5rem;
+        margin-bottom: 2rem;
+        color: var(--dark-color);
+        position: relative;
+        padding-bottom: 1rem;
+    }
+
+    .page-title::after {
+        content: '';
+        position: absolute;
+        bottom: 0;
+        right: 0;
+        width: 80px;
+        height: 4px;
+        background-color: var(--primary-color);
+    }
+
+    /* Dashboard Styles */
+    .dashboard-grid {
+        display: grid;
+        grid-template-columns: 250px 1fr;
+        gap: 2rem;
+    }
+
+    .sidebar {
+        background-color: white;
+        border-radius: var(--border-radius);
+        padding: 1.5rem;
+        box-shadow: var(--shadow);
+        height: fit-content;
+    }
+
+    .sidebar-menu {
+        list-style: none;
+        padding: 0;
+    }
+
+    .sidebar-menu li {
+        margin-bottom: 0.5rem;
+    }
+
+    .sidebar-menu a {
+        display: block;
+        padding: 0.8rem 1rem;
+        color: var(--text-color);
+        text-decoration: none;
+        border-radius: 4px;
+        transition: var(--transition);
+    }
+
+    .sidebar-menu a:hover, .sidebar-menu a.active {
+        background-color: var(--light-color);
+        color: var(--primary-color);
+    }
+
+    .sidebar-menu i {
+        margin-left: 0.5rem;
+        width: 20px;
+        text-align: center;
+    }
+
+    .dashboard-content {
+        background-color: white;
+        border-radius: var(--border-radius);
+        padding: 2rem;
+        box-shadow: var(--shadow);
+    }
+
+    /* User Profile */
+    
+    .profile-header {
+        display: flex;
+        align-items: center;
+        margin-bottom: 2rem;
+        padding-bottom: 2rem;
+        border-bottom: 1px solid #eee;
+    }
+
+    .profile-avatar {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-left: 2rem;
+        border: 5px solid var(--light-color);
+    }
+
+    .profile-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .profile-info h2 {
+        margin-bottom: 0.5rem;
+    }
+
+    .profile-rating {
+        color: #f39c12;
+        margin-bottom: 1rem;
+    }
+
+    .profile-badge {
+        display: inline-block;
+        background-color: var(--light-color);
+        color: var(--text-color);
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        margin-right: 0.5rem;
+        margin-bottom: 0.5rem;
+    }
+
+    /* Projects */
+    .projects-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .project-card {
+        background-color: white;
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+    }
+
+    .project-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .project-image {
+        height: 180px;
+        overflow: hidden;
+    }
+
+    .project-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: var(--transition);
+    }
+
+    .project-card:hover .project-image img {
+        transform: scale(1.05);
+    }
+
+    .project-info {
+        padding: 1.5rem;
+    }
+
+    .project-status {
+        display: inline-block;
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+        color: white;
+    }
+
+    .status-planning {
+        background-color: #f1c40f;
+    }
+
+    .status-in-progress {
+        background-color: #3498db;
+    }
+
+    .status-completed {
+        background-color: #2ecc71;
+    }
+
+    .project-meta {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 1rem;
+        color: var(--text-light);
+        font-size: 0.9rem;
+    }
+
+    /* Messages */
+    .messages-container {
+        display: grid;
+        grid-template-columns: 300px 1fr;
+        gap: 1.5rem;
+        background-color: white;
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+    }
+
+    .conversations-list {
+        border-right: 1px solid #eee;
+        height: 600px;
+        overflow-y: auto;
+    }
+
+    .conversation {
+        padding: 1rem;
+        border-bottom: 1px solid #eee;
+        cursor: pointer;
+        transition: var(--transition);
+    }
+
+    .conversation:hover, .conversation.active {
+        background-color: var(--light-color);
+    }
+
+    .conversation-header {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 0.5rem;
+    }
+
+    .conversation-user {
+        display: flex;
+        align-items: center;
+    }
+
+    .conversation-avatar {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin-left: 0.5rem;
+    }
+
+    .conversation-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .conversation-time {
+        color: var(--text-light);
+        font-size: 0.8rem;
+    }
+
+    .conversation-preview {
+        color: var(--text-light);
+        font-size: 0.9rem;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .message-view {
+        display: flex;
+        flex-direction: column;
+        height: 600px;
+    }
+
+    .message-header {
+        padding: 1rem;
+        border-bottom: 1px solid #eee;
+        display: flex;
+        align-items: center;
+    }
+
+    .message-header h3 {
+        margin-bottom: 0;
+    }
+
+    .message-body {
+        flex: 1;
+        padding: 1rem;
+        overflow-y: auto;
+    }
+
+    .message {
+        margin-bottom: 1.5rem;
+        max-width: 70%;
+    }
+
+    .message.received {
+        margin-right: auto;
+    }
+
+    .message.sent {
+        margin-left: auto;
+        text-align: left;
+    }
+
+    .message-content {
+        padding: 1rem;
+        border-radius: var(--border-radius);
+        background-color: var(--light-color);
+        position: relative;
+    }
+
+    .message.sent .message-content {
+        background-color: var(--primary-color);
+        color: white;
+    }
+
+    .message-time {
+        font-size: 0.8rem;
+        color: var(--text-light);
+        margin-top: 0.5rem;
+    }
+
+    .message.sent .message-time {
+        color: rgba(255, 255, 255, 0.7);
+    }
+
+    .message-input {
+        display: flex;
+        padding: 1rem;
+        border-top: 1px solid #eee;
+    }
+
+    .message-input input {
+        flex: 1;
+        padding: 0.8rem 1rem;
+        border: 1px solid #ddd;
+        border-radius: var(--border-radius) 0 0 var(--border-radius);
+        font-size: 1rem;
+    }
+
+    .message-input button {
+        padding: 0 1.5rem;
+        background-color: var(--primary-color);
+        color: white;
+        border: none;
+        border-radius: 0 var(--border-radius) var(--border-radius) 0;
+        cursor: pointer;
+        transition: var(--transition);
+    }
+
+    .message-input button:hover {
+        background-color: var(--secondary-color);
+    }
+
+    /* Marketplace Page */
+    .marketplace-filters {
+        display: flex;
+        justify-content: space-between;
+        margin-bottom: 2rem;
+        background-color: white;
+        padding: 1.5rem;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow);
+    }
+
+    .filter-group {
+        flex: 1;
+        margin-right: 1.5rem;
+    }
+
+    .filter-group:last-child {
+        margin-right: 0;
+    }
+
+    .filter-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+    }
+
+    .filter-group select, .filter-group input {
+        width: 100%;
+        padding: 0.8rem;
+        border: 1px solid #ddd;
+        border-radius: var(--border-radius);
+        font-size: 1rem;
+    }
+
+    /* Education Page */
+    .education-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .education-card {
+        background-color: white;
+        border-radius: var(--border-radius);
+        overflow: hidden;
+        box-shadow: var(--shadow);
+        transition: var(--transition);
+    }
+
+    .education-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .education-image {
+        height: 180px;
+        overflow: hidden;
+    }
+
+    .education-image img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: var(--transition);
+    }
+
+    .education-card:hover .education-image img {
+        transform: scale(1.05);
+    }
+
+    .education-info {
+        padding: 1.5rem;
+    }
+
+    .education-category {
+        display: inline-block;
+        background-color: var(--light-color);
+        color: var(--primary-color);
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: bold;
+        margin-bottom: 1rem;
+    }
+
+    .education-meta {
+        display: flex;
+        justify-content: space-between;
+        margin-top: 1rem;
+        color: var(--text-light);
+        font-size: 0.9rem;
+    }
+
+    /* Support Page */
+    .support-tabs {
+        display: flex;
+        border-bottom: 1px solid #ddd;
+        margin-bottom: 2rem;
+    }
+
+    .support-tab {
+        padding: 0.8rem 1.5rem;
+        cursor: pointer;
+        border-bottom: 3px solid transparent;
+        transition: var(--transition);
+    }
+
+    .support-tab.active {
+        border-bottom-color: var(--primary-color);
+        color: var(--primary-color);
+        font-weight: 500;
+    }
+
+    .support-tab:hover:not(.active) {
+        border-bottom-color: #ddd;
+    }
+
+    .support-content {
+        display: none;
+    }
+
+    .support-content.active {
+        display: block;
+    }
+
+    .faq-item {
+        margin-bottom: 1rem;
+        background-color: white;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow);
+        overflow: hidden;
+    }
+
+    .faq-question {
+        padding: 1.5rem;
+        cursor: pointer;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        font-weight: 500;
+    }
+
+    .faq-answer {
+        padding: 0 1.5rem;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease;
+    }
+
+    .faq-item.active .faq-answer {
+        padding-bottom: 1.5rem;
+        max-height: 500px;
+    }
+
+    .contact-form {
+        background-color: white;
+        padding: 2rem;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow);
+    }
+
+    .form-group {
+        margin-bottom: 1.5rem;
+    }
+
+    .form-group label {
+        display: block;
+        margin-bottom: 0.5rem;
+        font-weight: 500;
+    }
+
+    .form-group input, .form-group textarea, .form-group select {
+        width: 100%;
+        padding: 0.8rem 1rem;
+        border: 1px solid #ddd;
+        border-radius: var(--border-radius);
+        font-size: 1rem;
+        transition: var(--transition);
+    }
+
+    .form-group textarea {
+        min-height: 150px;
+        resize: vertical;
+    }
+
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus {
+        border-color: var(--primary-color);
+        outline: none;
+        box-shadow: 0 0 0 3px rgba(46, 204, 113, 0.2);
+    }
+
+    /* Partners Page */
+    .partner-card {
+        display: flex;
+        background-color: white;
+        border-radius: var(--border-radius);
+        padding: 1.5rem;
+        box-shadow: var(--shadow);
+        margin-bottom: 1.5rem;
+        transition: var(--transition);
+    }
+
+    .partner-card:hover {
+        transform: translateY(-5px);
+        box-shadow: 0 10px 20px rgba(0, 0, 0, 0.1);
+    }
+
+    .partner-logo-large {
+        width: 150px;
+        height: 100px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 1.5rem;
+        flex-shrink: 0;
+    }
+
+    .partner-logo-large img {
+        max-width: 100%;
+        max-height: 100%;
+        object-fit: contain;
+    }
+
+    .partner-info {
+        flex: 1;
+    }
+
+    .partner-offer {
+        background-color: var(--light-color);
+        padding: 0.5rem 1rem;
+        border-radius: 4px;
+        display: inline-block;
+        margin-top: 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    /* Back to Top Button */
+    .back-to-top {
+        position: fixed;
+        bottom: 2rem;
+        left: 2rem;
+        width: 50px;
+        height: 50px;
+        background-color: var(--primary-color);
+        color: white;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.2rem;
+        cursor: pointer;
+        opacity: 0;
+        visibility: hidden;
+        transition: var(--transition);
+        z-index: 999;
+        box-shadow: var(--shadow);
+    }
+
+    .back-to-top.visible {
+        opacity: 1;
+        visibility: visible;
+    }
+
+    .back-to-top:hover {
+        background-color: var(--secondary-color);
+        transform: translateY(-3px);
+    }
+
+    /* New Pages Styles */
+    /* Complaints Page */
+    
+    .complaint-form {
+        background-color: white;
+        padding: 2rem;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow);
+    }
+
+    /* Admin Panel */
+    .admin-panel {
+        background-color: white;
+        border-radius: var(--border-radius);
+        padding: 2rem;
+        box-shadow: var(--shadow);
+    }
+
+    .admin-stats {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .stat-card {
+        background-color: var(--light-color);
+        padding: 1.5rem;
+        border-radius: var(--border-radius);
+        text-align: center;
+    }
+
+    .stat-card h3 {
+        font-size: 2rem;
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+    }
+
+    .admin-table {
+        width: 100%;
+        border-collapse: collapse;
+        margin-top: 1.5rem;
+    }
+
+    .admin-table th, .admin-table td {
+        padding: 1rem;
+        text-align: right;
+        border-bottom: 1px solid #eee;
+    }
+
+    .admin-table th {
+        background-color: var(--light-color);
+        font-weight: 600;
+    }
+
+    .action-buttons {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .btn-sm {
+        padding: 0.4rem 0.8rem;
+        font-size: 0.8rem;
+    }
+
+    .btn-danger {
+        background-color: #e74c3c;
+        color: white;
+    }
+
+    .btn-danger:hover {
+        background-color: #c0392b;
+    }
+
+    /* Contact Page */
+    .contact-info {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 2rem;
+        margin-bottom: 3rem;
+    }
+
+    .contact-card {
+        background-color: white;
+        padding: 1.5rem;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow);
+        text-align: center;
+    }
+
+    .contact-card i {
+        font-size: 2rem;
+        color: var(--primary-color);
+        margin-bottom: 1rem;
+    }
+
+    /* Loading Spinner */
+    .spinner {
+        width: 40px;
+        height: 40px;
+        border: 4px solid rgba(0, 0, 0, 0.1);
+        border-left-color: var(--primary-color);
+        border-radius: 50%;
+        animation: spin 1s linear infinite;
+        margin: 2rem auto;
+    }
+
+    @keyframes spin {
+        to { transform: rotate(360deg); }
+    }
+
+    /* Additional Styles for New Pages */
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .stat-box {
+        background-color: white;
+        padding: 1.5rem;
+        border-radius: var(--border-radius);
+        text-align: center;
+        box-shadow: var(--shadow);
+    }
+
+    .stat-box h3 {
+        font-size: 2rem;
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+    }
+
+    .complaint-status {
+        display: inline-block;
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: bold;
+        color: white;
+    }
+
+    .status-pending {
+        background-color: #f39c12;
+    }
+
+    .status-in-progress {
+        background-color: #3498db;
+    }
+
+    .status-resolved {
+        background-color: #2ecc71;
+    }
+
+    .status-rejected {
+        background-color: #e74c3c;
+    }
+
+    .admin-actions {
+        display: flex;
+        gap: 0.5rem;
+    }
+
+    .btn-warning {
+        background-color: #f39c12;
+        color: white;
+    }
+
+    .btn-warning:hover {
+        background-color: #e67e22;
+    }
+    
+    /* تنسيقات لوحة التحكم */
+    .dashboard-grid {
+        display: grid;
+        grid-template-columns: 280px 1fr;
+        gap: 2rem;
+        margin-top: 2rem;
+    }
+
+    .sidebar {
+        background-color: white;
+        border-radius: var(--border-radius);
+        padding: 1.5rem;
+        box-shadow: var(--shadow);
+        height: fit-content;
+    }
+
+    .user-profile-sidebar {
+        text-align: center;
+        margin-bottom: 2rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid #eee;
+    }
+
+    .user-profile-sidebar .profile-avatar {
+        width: 80px;
+        height: 80px;
+        border-radius: 50%;
+        overflow: hidden;
+        margin: 0 auto 1rem;
+    }
+
+    .user-profile-sidebar .profile-avatar img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .user-profile-sidebar h3 {
+        margin-bottom: 0.5rem;
+        color: var(--dark-color);
+    }
+
+    .user-profile-sidebar p {
+        color: var(--text-light);
+        font-size: 0.9rem;
+    }
+
+    .sidebar-menu {
+        list-style: none;
+        padding: 0;
+    }
+
+    .sidebar-menu li {
+        margin-bottom: 0.5rem;
+    }
+
+    .sidebar-menu a {
+        display: flex;
+        align-items: center;
+        padding: 0.8rem 1rem;
+        color: var(--text-color);
+        text-decoration: none;
+        border-radius: 4px;
+        transition: var(--transition);
+    }
+
+    .sidebar-menu a:hover, .sidebar-menu a.active {
+        background-color: var(--light-color);
+        color: var(--primary-color);
+    }
+
+    .sidebar-menu i {
+        margin-left: 0.5rem;
+        width: 20px;
+        text-align: center;
+    }
+
+    .dashboard-content {
+        background-color: white;
+        border-radius: var(--border-radius);
+        padding: 2rem;
+        box-shadow: var(--shadow);
+    }
+
+    .dashboard-tab {
+        display: none;
+    }
+
+    .dashboard-tab.active {
+        display: block;
+    }
+
+    .stats-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1.5rem;
+        margin-bottom: 2rem;
+    }
+
+    .stat-box {
+        display: flex;
+        align-items: center;
+        background-color: var(--light-color);
+        padding: 1.5rem;
+        border-radius: var(--border-radius);
+    }
+
+    .stat-icon {
+        width: 50px;
+        height: 50px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        color: white;
+        font-size: 1.2rem;
+        margin-left: 1rem;
+    }
+
+    .stat-info h3 {
+        margin-bottom: 0.5rem;
+        color: var(--dark-color);
+    }
+
+    .stat-info p {
+        color: var(--text-light);
+        margin: 0;
+    }
+
+    .dashboard-cards {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+        gap: 1.5rem;
+    }
+
+    .card {
+        background-color: var(--light-color);
+        padding: 1.5rem;
+        border-radius: var(--border-radius);
+    }
+
+    .card h3 {
+        margin-bottom: 1rem;
+        color: var(--dark-color);
+        border-bottom: 1px solid #ddd;
+        padding-bottom: 0.5rem;
+    }
+
+    .project-item {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding: 1rem 0;
+        border-bottom: 1px solid #eee;
+    }
+
+    .project-item:last-child {
+        border-bottom: none;
+    }
+
+    .status-badge {
+        padding: 0.3rem 0.8rem;
+        border-radius: 20px;
+        font-size: 0.8rem;
+        font-weight: bold;
+        color: white;
+    }
+
+    .status-in-progress {
+        background-color: #3498db;
+    }
+
+    .status-pending {
+        background-color: #f39c12;
+    }
+
+    .status-completed {
+        background-color: #2ecc71;
+    }
+
+    .activity-item {
+        display: flex;
+        align-items: flex-start;
+        padding: 1rem 0;
+        border-bottom: 1px solid #eee;
+    }
+
+    .activity-item:last-child {
+        border-bottom: none;
+    }
+
+    .activity-icon {
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        background-color: var(--primary-color);
+        color: white;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-left: 1rem;
+        flex-shrink: 0;
+    }
+
+    .activity-content p {
+        margin-bottom: 0.3rem;
+        font-weight: 500;
+        color: var(--dark-color);
+    }
+
+    .activity-content span {
+        color: var(--text-light);
+        font-size: 0.8rem;
+    }
+
+    /* responsive dashboard */
+    @media (max-width: 992px) {
+        .dashboard-grid {
+            grid-template-columns: 1fr;
+        }
+        
+        .sidebar {
+            display: none;
+        }
+    }
+    
+    /* Profile Page Styles */
+    .profile-stats {
+        display: flex;
+        justify-content: space-around;
+        margin: 2rem 0;
+        padding: 1.5rem;
+        background-color: white;
+        border-radius: var(--border-radius);
+        box-shadow: var(--shadow);
+    }
+    
+    .stat-item {
+        text-align: center;
+    }
+    
+    .stat-number {
+        font-size: 2rem;
+        font-weight: bold;
+        color: var(--primary-color);
+        margin-bottom: 0.5rem;
+    }
+    
+    .stat-label {
+        color: var(--text-light);
+    }
+    
+    .profile-badges {
+        margin: 1.5rem 0;
+    }
+    
+    .badge {
+        display: inline-block;
+        background-color: var(--light-color);
+        color: var(--primary-color);
+        padding: 0.5rem 1rem;
+        border-radius: 20px;
+        margin-right: 0.5rem;
+        margin-bottom: 0.5rem;
+        font-size: 0.9rem;
+    }
+    
+    .badge i {
+        margin-left: 0.3rem;
+    }
+    
+    .profile-content {
+        background-color: white;
+        border-radius: var(--border-radius);
+        padding: 2rem;
+        box-shadow: var(--shadow);
+    }
+    
+    .content-section {
+        margin-bottom: 2rem;
+        padding-bottom: 1.5rem;
+        border-bottom: 1px solid #eee;
+    }
+    
+    .content-section:last-child {
+        border-bottom: none;
+        margin-bottom: 0;
+        padding-bottom: 0;
+    }
+    
+    .content-section h3 {
+        margin-bottom: 1rem;
+        color: var(--dark-color);
+        display: flex;
+        align-items: center;
+    }
+    
+    .content-section h3 i {
+        margin-left: 0.5rem;
+        color: var(--primary-color);
+    }
+    
+    .projects-list, .reviews-list {
+        margin-top: 1rem;
+    }
+    
+    .project-item, .review-item {
+        background-color: var(--light-color);
+        padding: 1rem;
+        border-radius: var(--border-radius);
+        margin-bottom: 1rem;
+    }
+    
+    .project-item:last-child, .review-item:last-child {
+        margin-bottom: 0;
+    }
+    
+    .reviewer {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 0.5rem;
+    }
+    
+    .rating {
+        color: #f39c12;
+    }
+    
+    .review-date {
+        color: var(--text-light);
+        font-size: 0.8rem;
+        display: block;
+        margin-top: 0.5rem;
+    }
+    
+    .contact-info p {
+        display: flex;
+        align-items: center;
+        margin-bottom: 1rem;
+    }
+    
+    .contact-info i {
+        margin-left: 0.5rem;
+        color: var(--primary-color);
+        width: 20px;
+    }
+    </style>
+</head>
+<body>
+    <!-- Dashboard Page -->
+    <div class="page" id="dashboard-page">
+        <div class="container">
+            <h1 class="page-title">لوحة التحكم</h1>
+            
+            <div class="dashboard-grid">
+                <!-- الشريط الجانبي -->
+                <div class="sidebar">
+                    <div class="user-profile-sidebar">
+                        <div class="profile-avatar">
+                            <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="المستخدم">
+                        </div>
+                        <h3>محمد أحمد</h3>
+                        <p>مقاول محترف</p>
+                    </div>
+                    
+                    <ul class="sidebar-menu">
+                        <li><a href="#" class="active" onclick="showDashboardTab('overview')"><i class="fas fa-home"></i> نظرة عامة</a></li>
+                        <li><a href="#" onclick="showDashboardTab('projects')"><i class="fas fa-briefcase"></i> المشاريع</a></li>
+                        <li><a href="#" onclick="showDashboardTab('messages')"><i class="fas fa-envelope"></i> الرسائل</a></li>
+                        <li><a href="#" onclick="showDashboardTab('orders')"><i class="fas fa-shopping-cart"></i> الطلبات</a></li>
+                        <li><a href="#" onclick="showDashboardTab('finance')"><i class="fas fa-chart-line"></i> المالية</a></li>
+                        <li><a href="#" onclick="showDashboardTab('profile')"><i class="fas fa-user"></i> الملف الشخصي</a></li>
+                        <li><a href="#" onclick="showDashboardTab('settings')"><i class="fas fa-cog"></i> الإعدادات</a></li>
+                        <li><a href="#" onclick="logout()"><i class="fas fa-sign-out-alt"></i> تسجيل الخروج</a></li>
+                    </ul>
+                </div>
+                
+                <!-- محتوى لوحة التحكم -->
+                <div class="dashboard-content">
+                    <!-- نظرة عامة -->
+                    <div class="dashboard-tab active" id="overview-tab">
+                        <div class="stats-grid">
+                            <div class="stat-box">
+                                <div class="stat-icon" style="background-color: #4CAF50;">
+                                    <i class="fas fa-briefcase"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <h3>12</h3>
+                                    <p>المشاريع النشطة</p>
+                                </div>
+                            </div>
+                            
+                            <div class="stat-box">
+                                <div class="stat-icon" style="background-color: #2196F3;">
+                                    <i class="fas fa-shopping-cart"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <h3>8</h3>
+                                    <p>طلبات جديدة</p>
+                                </div>
+                            </div>
+                            
+                            <div class="stat-box">
+                                <div class="stat-icon" style="background-color: #FF9800;">
+                                    <i class="fas fa-envelope"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <h3>5</h3>
+                                    <p>رسائل جديدة</p>
+                                </div>
+                            </div>
+                            
+                            <div class="stat-box">
+                                <div class="stat-icon" style="background-color: #F44336;">
+                                    <i class="fas fa-dollar-sign"></i>
+                                </div>
+                                <div class="stat-info">
+                                    <h3>24,500 دج</h3>
+                                    <p>الإيرادات</p>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="dashboard-cards">
+                            <div class="card">
+                                <h3>المشاريع الحديثة</h3>
+                                <div class="project-item">
+                                    <div class="project-info">
+                                        <h4>ترميم فيلا سكنية</h4>
+                                        <p>العاصمة الجزائر</p>
+                                    </div>
+                                    <span class="status-badge status-in-progress">قيد التنفيذ</span>
+                                </div>
+                                <div class="project-item">
+                                    <div class="project-info">
+                                        <h4>تجديد مطبخ</h4>
+                                        <p>وهران</p>
+                                    </div>
+                                    <span class="status-badge status-pending">في الانتظار</span>
+                                </div>
+                                <div class="project-item">
+                                    <div class="project-info">
+                                        <h4>تصميم حديقة</h4>
+                                        <p>قسنطينة</p>
+                                    </div>
+                                    <span class="status-badge status-completed">مكتمل</span>
+                                </div>
+                            </div>
+                            
+                            <div class="card">
+                                <h3>الأنشطة الحديثة</h3>
+                                <div class="activity-item">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-briefcase"></i>
+                                    </div>
+                                    <div class="activity-content">
+                                        <p>تم بدء مشروع جديد "ترميم فيلا"</p>
+                                        <span>منذ ساعتين</span>
+                                    </div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-check-circle"></i>
+                                    </div>
+                                    <div class="activity-content">
+                                        <p>تم إكمال مشروع "تصميم حديقة"</p>
+                                        <span>منذ يومين</span>
+                                    </div>
+                                </div>
+                                <div class="activity-item">
+                                    <div class="activity-icon">
+                                        <i class="fas fa-comment"></i>
+                                    </div>
+                                    <div class="activity-content">
+                                        <p>رسالة جديدة من أحمد السليم</p>
+                                        <span>منذ 3 أيام</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <!-- باقي تبويبات لوحة التحكم -->
+                    <div class="dashboard-tab" id="projects-tab">
+                        <h2>إدارة المشاريع</h2>
+                        <!-- محتوى إدارة المشاريع -->
+                    </div>
+                    
+                    <div class="dashboard-tab" id="messages-tab">
+                        <h2>الرسائل</h2>
+                        <!-- محتوى الرسائل -->
+                    </div>
+                    
+                    <!-- ... تبويبات أخرى بنفس النمط -->
+                </div>
+            </div>
+        </div>
+    </div>
+  
+    <!-- Header -->
+    <header>
+        <div class="container header-container">
+            <a href="#" class="logo" onclick="showPage('home'); return false;">
+                <i class="fas fa-leaf"></i>
+                Co <span>Reno</span> M&D
+            </a>
+
+            <nav>
+                <ul>
+                    <li><a href="#" onclick="showPage('home'); return false;">الرئيسية</a></li>
+                    <li><a href="#" onclick="showPage('marketplace'); return false;">السوق</a></li>
+                    <li><a href="#" onclick="showPage('education'); return false;">التوعية</a></li>
+                    <li><a href="#" onclick="showPage('partners'); return false;">الشركاء</a></li>
+                    <li><a href="#" onclick="showPage('contact'); return false;">التواصل</a></li>
+                </ul>
+            </nav>
+
+            <div class="auth-buttons">
+                <div class="language-switcher">
+                    <button class="language-btn">
+                        <i class="fas fa-globe"></i>
+                        العربية
+                    </button>
+                    <div class="language-dropdown">
+                        <a href="#">English</a>
+                        <a href="#">Français</a>
+                        <a href="#">Español</a>
+                    </div>
+                </div>
+                <button class="btn btn-outline" onclick="showPage('login'); return false;">تسجيل الدخول</button>
+                <button class="btn btn-primary" onclick="showPage('register'); return false;">إنشاء حساب</button>
+            </div>
+
+            <button class="mobile-menu-btn" id="mobileMenuBtn">
+                <i class="fas fa-bars"></i>
+            </button>
+        </div>
+    </header>
+
+    <!-- Mobile Navigation -->
+    <div class="mobile-nav" id="mobileNav">
+        <div class="mobile-nav-header">
+            <a href="#" class="logo" onclick="showPage('home'); return false;">
+                <i class="fas fa-leaf"></i>
+                M&D <span>Reno</span> CO
+            </a>
+            <button class="close-mobile-menu" id="closeMobileMenu">
+                <i class="fas fa-times"></i>
+            </button>
+        </div>
+
+        <ul>
+            <li><a href="#" onclick="showPage('home'); return false;">الرئيسية</a></li>
+            <li><a href="#" onclick="showPage('marketplace'); return false;">السوق</a></li>
+            <li><a href="#" onclick="showPage('education'); return false;">التوعية</a></li>
+            <li><a href="#" onclick="showPage('profile'); return false;">الملف الشخصي</a></li>
+            <li><a href="#" onclick="showPage('partners'); return false;">الشركاء</a></li>
+            <li><a href="#" onclick="showPage('contact'); return false;">التواصل</a></li>
+            <li><a href="#" onclick="showPage('complaints'); return false;">الشكاوى</a></li>
+            <li><a href="#" onclick="showPage('messages'); return false;">الرسائل</a></li>
+            <li><a href="#" onclick="showPage('support'); return false;">الدعم</a></li>
+        </ul>
+
+        <div class="mobile-auth-buttons">
+            <button class="btn btn-outline" onclick="showPage('login'); return false;">تسجيل الدخول</button>
+            <button class="btn btn-primary" onclick="showPage('register'); return false;">إنشاء حساب</button>
+        </div>
+    </div>
+
+    <div class="overlay" id="overlay"></div>
+
+    <!-- Home Page -->
+    <div class="page active" id="home-page">
+        <!-- Hero Section -->
+        <section class="hero">
+            <div class="container hero-content fade-in">
+                <h1>منصة التعاون للترميم الاقتصادي <span>الصديق للبيئة</span></h1>
+                <p>نوفر حلولاً مستدامة واقتصادية لعمليات الترميم والتجديد، مع الحفاظ على البيئة ودعم الاقتصاد المحلي.</p>
+                
+                <div class="search-bar delay-1">
+                    <input type="text" placeholder="ابحث عن مواد بناء، مقاولين، أو خدمات...">
+                    <button><i class="fas fa-search"></i> بحث</button>
+                </div>
+            </div>
+        </section>
+
+        <!-- Features Section -->
+        <section class="features section-padding">
+            <div class="container">
+                <div class="section-title fade-in">
+                    <h2>لماذا تختار منصتنا؟</h2>
+                </div>
+
+                <div class="features-grid">
+                    <div class="feature-card fade-in delay-1">
+                        <i class="fas fa-recycle"></i>
+                        <h3>حلول صديقة للبيئة</h3>
+                        <p>نقدم مواد وخدمات بناء مستدامة تقلل من البصمة الكربونية وتدعم الاقتصاد الدائري.</p>
+                    </div>
+
+                    <div class="feature-card fade-in delay-2">
+                        <i class="fas fa-wallet"></i>
+                        <h3>توفير في التكاليف</h3>
+                        <p>وفر حتى 30% من تكاليف الترميم مع الحفاظ على الجودة باستخدام مواد معاد تدويرها.</p>
+                    </div>
+
+                    <div class="feature-card fade-in delay-3">
+                        <i class="fas fa-users"></i>
+                        <h3>مجتمع متعاون</h3>
+                        <p>انضم إلى مجتمع من المهنيين وأصحاب المنازل الذين يشاركونك نفس القيم البيئية.</p>
+                    </div>
+
+                    <div class="feature-card fade-in delay-4">
+                        <i class="fas fa-award"></i>
+                        <h3>جودة مضمونة</h3>
+                        <p>جميع الموردين والمقاولين على المنصة يتم التحقق منهم ومراجعتهم من قبل المستخدمين.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Marketplace Section -->
+        <section class="marketplace section-padding">
+            <div class="container">
+                <div class="section-title fade-in">
+                    <h2>استكشف سوقنا المستدام</h2>
+                </div>
+
+                <div class="products-grid">
+                    <div class="product-card fade-in delay-1">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="مواد بناء معاد تدويرها">
+                        </div>
+                        <div class="product-info">
+                            <h3>ألواح خشب معاد تدويره</h3>
+                            <p>خشب عالي الجودة معاد تدويره من مصادر مستدامة</p>
+                            <span class="product-price">75 دج/المتر</span>
+                            <span class="eco-badge">وفر 15%</span>
+                            <button class="btn btn-primary" style="width: 100%; margin-top: 10px;" onclick="addToCart('ألواح خشب معاد تدويره', 75)">إضافة إلى السلة <i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="product-card fade-in delay-2">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1606744837616-56c9a5c6a6eb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="طلاء صديق للبيئة">
+                        </div>
+                        <div class="product-info">
+                            <h3>طلاء خالي من المركبات العضوية</h3>
+                            <p>طلاء صحي وصديق للبيئة خالي من المواد الضارة</p>
+                            <span class="product-price">120 دج/العلبة</span>
+                            <span class="eco-badge">صديق للبيئة</span>
+                            <button class="btn btn-primary" style="width: 100%; margin-top: 10px;" onclick="addToCart('طلاء خالي من المركبات العضوية', 120)">إضافة إلى السلة <i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="product-card fade-in delay-3">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="خدمات ترميم">
+                        </div>
+                        <div class="product-info">
+                            <h3>خدمات ترميم متكاملة</h3>
+                            <p>فريق متخصص في الترميم باستخدام مواد مستدامة</p>
+                            <span class="product-price">يبدأ من 500 دج</span>
+                            <span class="eco-badge">عروض خاصة</span>
+                            <button class="btn btn-primary" style="width: 100%; margin-top: 10px;" onclick="requestService('خدمات ترميم متكاملة')">طلب خدمة <i class="fas fa-tools"></i></button>
+                        </div>
+                    </div>
+
+                    <div class="product-card fade-in delay-4">
+                        <div class="product-image">
+                            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="أرضيات مستدامة">
+                        </div>
+                        <div class="product-info">
+                            <h3>أرضيات من الخشب المعاد تدويره</h3>
+                            <p>أرضيات عالية الجودة من مصادر مستدامة</p>
+                            <span class="product-price">200 دج/المتر</span>
+                            <span class="eco-badge">الأكثر مبيعاً</span>
+                            <button class="btn btn-primary" style="width: 100%; margin-top: 10px;" onclick="addToCart('أرضيات من الخشب المعاد تدويره', 200)">إضافة إلى السلة <i class="fas fa-shopping-cart"></i></button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="text-center fade-in" style="margin-top: 3rem;">
+                    <button class="btn btn-primary" onclick="showPage('marketplace'); return false;">عرض المزيد <i class="fas fa-arrow-left"></i></button>
+                </div>
+            </div>
+        </section>
+
+        <!-- How It Works Section -->
+        <section class="how-it-works section-padding">
+            <div class="container">
+                <div class="section-title fade-in">
+                    <h2>كيف تعمل المنصة؟</h2>
+                </div>
+
+                <div class="steps">
+                    <div class="step fade-in delay-1">
+                        <div class="step-number">1</div>
+                        <div class="step-content">
+                            <h3>سجل مشروعك</h3>
+                            <p>أنشئ حساباً وحدد متطلبات مشروع الترميم الخاص بك</p>
+                        </div>
+                    </div>
+
+                    <div class="step fade-in delay-2">
+                        <div class="step-number">2</div>
+                        <div class="step-content">
+                            <h3>استقبل العروض</h3>
+                            <p>احصل على عروض من مقاولين وموردين معتمدين</p>
+                        </div>
+                    </div>
+
+                    <div class="step fade-in delay-3">
+                        <div class="step-number">3</div>
+                        <div class="step-content">
+                            <h3>اختر الحل الأمثل</h3>
+                            <p>قارن بين العروض واختر ما يناسب ميزانيتك وقيمك البيئية</p>
+                        </div>
+                    </div>
+
+                    <div class="step fade-in delay-4">
+                        <div class="step-number">4</div>
+                        <div class="step-content">
+                            <h3>تابع المشروع</h3>
+                            <p>استخدم أدواتنا لمتابعة تقدم العمل والدفع الآمن</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Testimonials Section -->
+        <section class="testimonials section-padding">
+            <div class="container">
+                <div class="section-title fade-in">
+                    <h2>آراء عملائنا</h2>
+                </div>
+
+                <div class="testimonials-slider">
+                    <div class="testimonials-container" id="testimonialsContainer">
+                        <div class="testimonial">
+                            <div class="testimonial-content">
+                                <p class="testimonial-text">لقد وفرت لي المنصة أكثر من 40% من تكاليف ترميم منزلي باستخدام مواد معاد تدويرها عالية الجودة. فريق الدعم كان متجاوباً في كل خطوة.</p>
+                                <div class="testimonial-author">
+                                    <div class="author-info">
+                                        <h4>أحمد السليم</h4>
+                                        <p>مالك منزل - العاصمة</p>
+                                        <div class="testimonial-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                        </div>
+                                    </div>
+                                    <div class="author-avatar">
+                                        <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="أحمد السليم">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="testimonial">
+                            <div class="testimonial-content">
+                                <p class="testimonial-text">كثير من العملاء يبحثون عن حلول صديقة للبيئة، وهذه المنصة ساعدتني في الوصول إلى هؤلاء العملاء وتنمية عملي بشكل كبير.</p>
+                                <div class="testimonial-author">
+                                    <div class="author-info">
+                                        <h4>سارة الناصر</h4>
+                                        <p>مقاولة - وهران</p>
+                                        <div class="testimonial-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star-half-alt"></i>
+                                        </div>
+                                    </div>
+                                    <div class="author-avatar">
+                                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="سارة الناصر">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="testimonial">
+                            <div class="testimonial-content">
+                                <p class="testimonial-text">أدوات إدارة المشاريع ساعدتني في تنظيم عمليات الترميم بشكل أفضل، ووفرت علي الكثير من الوقت والجهد في التنسيق مع العملاء.</p>
+                                <div class="testimonial-author">
+                                    <div class="author-info">
+                                        <h4>خالد الفهد</h4>
+                                        <p>مهندس ديكور - برج بوعريريج</p>
+                                        <div class="testimonial-rating">
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="fas fa-star"></i>
+                                            <i class="far fa-star"></i>
+                                        </div>
+                                    </div>
+                                    <div class="author-avatar">
+                                        <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="خالد الفهد">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="slider-controls">
+                        <div class="slider-dot active" onclick="goToTestimonial(0)"></div>
+                        <div class="slider-dot" onclick="goToTestimonial(1)"></div>
+                        <div class="slider-dot" onclick="goToTestimonial(2)"></div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Partners Section -->
+        <section class="partners section-padding">
+            <div class="container">
+                <div class="section-title fade-in">
+                    <h2>شركاؤنا</h2>
+                </div>
+
+                <div class="partners-grid">
+                    <div class="partner-logo">
+                        <i class="fas fa-building fa-3x"></i>
+                        <span class="logo-name">بناة المستقبل</span>
+                    </div>
+                    <div class="partner-logo">
+                        <i class="fas fa-leaf fa-3x"></i>
+                        <span class="logo-name">البناء الأخضر</span>
+                    </div>
+                    <div class="partner-logo">
+                        <i class="fas fa-recycle fa-3x"></i>
+                        <span class="logo-name">إيكو مات</span>
+                    </div>
+                    <div class="partner-logo">
+                        <i class="fas fa-home fa-3x"></i>
+                        <span class="logo-name">هوم سيرفيس</span>
+                    </div>
+                    <div class="partner-logo">
+                        <i class="fas fa-paint-roller fa-3x"></i>
+                        <span class="logo-name">ديكوريا</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- CTA Section -->
+        <section class="cta section-padding">
+            <div class="container">
+                <div class="fade-in">
+                    <h2>جاهز لبدء مشروع الترميم الخاص بك؟</h2>
+                    <p>انضم إلى مجتمعنا المتنامي من المهنيين وأصحاب المنازل الذين يهتمون بالبيئة ويبحثون عن حلول اقتصادية.</p>
+                    <div class="cta-buttons">
+                        <button class="btn btn-white" onclick="showPage('register'); return false;">إنشاء حساب <i class="fas fa-user-plus"></i></button>
+                        <button class="btn btn-transparent" onclick="showPage('education'); return false;">تعرف أكثر <i class="fas fa-book"></i></button>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Marketplace Page -->
+    <div class="page" id="marketplace-page">
+        <div class="container">
+            <h1 class="page-title">سوق الترميم المستدام</h1>
+            
+            <div class="marketplace-filters fade-in">
+                <div class="filter-group">
+                    <label for="category">التصنيف</label>
+                    <select id="category">
+                        <option value="">جميع التصنيفات</option>
+                        <option value="materials">مواد بناء</option>
+                        <option value="services">خدمات</option>
+                        <option value="furniture">أثاث</option>
+                        <option value="tools">أدوات</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="location">الموقع</label>
+                    <select id="location">
+                        <option value="">جميع المناطق</option>
+                        <option value="algiers">العاصمة</option>
+                        <option value="oran">وهران</option>
+                        <option value="constantine">قسنطينة</option>
+                        <option value="setif">سطيف</option>
+                    </select>
+                </div>
+                
+                <div class="filter-group">
+                    <label for="price-range">نطاق السعر</label>
+                    <select id="price-range">
+                        <option value="">جميع الأسعار</option>
+                        <option value="0-500">حتى 500 دج</option>
+                        <option value="500-1000">500 - 1000 دج</option>
+                        <option value="1000-5000">1000 - 5000 دج</option>
+                        <option value="5000+">أكثر من 5000 دج</option>
+                    </select>
+                </div>
+            </div>
+            
+            <div class="products-grid">
+                <div class="product-card fade-in delay-1">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1606744837616-56c9a5c6a6eb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="طلاء صديق للبيئة">
+                    </div>
+                    <div class="product-info">
+                        <h3>طلاء خالي من المركبات العضوية</h3>
+                        <p>طلاء صحي وصديق للبيئة خالي من المواد الضارة</p>
+                        <span class="product-price">120 دج/العلبة</span>
+                        <span class="eco-badge">صديق للبيئة</span>
+                        <button class="btn btn-primary" style="width: 100%; margin-top: 10px;" onclick="addToCart('طلاء خالي من المركبات العضوية', 120)">إضافة إلى السلة <i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                </div>
+                
+                <div class="product-card fade-in delay-2">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="أرضيات مستدامة">
+                    </div>
+                    <div class="product-info">
+                        <h3>أرضيات من الخشب المعاد تدويره</h3>
+                        <p>أرضيات عالية الجودة من مصادر مستدامة</p>
+                        <span class="product-price">200 دج/المتر</span>
+                        <span class="eco-badge">الأكثر مبيعاً</span>
+                        <button class="btn btn-primary" style="width: 100%; margin-top: 10px;" onclick="addToCart('أرضيات من الخشب المعاد تدويره', 200)">إضافة إلى السلة <i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                </div>
+                
+                <div class="product-card fade-in delay-3">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1605152276897-4f618f831968?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="إضاءة موفرة للطاقة">
+                    </div>
+                    <div class="product-info">
+                        <h3>لمبات LED موفرة للطاقة</h3>
+                        <p>إضاءة عالية الجودة بتقنية LED توفر حتى 80% من الطاقة</p>
+                        <span class="product-price">45 دج/القطعة</span>
+                        <span class="eco-badge">موفر للطاقة</span>
+                        <button class="btn btn-primary" style="width: 100%; margin-top: 10px;" onclick="addToCart('لمبات LED موفرة للطاقة', 45)">إضافة إلى السلة <i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                </div>
+                
+                <div class="product-card fade-in delay-4">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1600121848594-d8644e57abab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="أثاث معاد تدويره">
+                    </div>
+                    <div class="product-info">
+                        <h3>طاولة قهوة من الخشب المعاد تدويره</h3>
+                        <p>تصميم عصري من مواد معاد تدويرها بنسبة 100%</p>
+                        <span class="product-price">350 دج</span>
+                        <span class="eco-badge">معاد تدويره</span>
+                        <button class="btn btn-primary" style="width: 100%; margin-top: 10px;" onclick="addToCart('طاولة قهوة من الخشب المعاد تدويره', 350)">إضافة إلى السلة <i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                </div>
+                
+                <div class="product-card fade-in delay-1">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1600585152220-90363fe7e115?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="مواد بناء معاد تدويرها">
+                    </div>
+                    <div class="product-info">
+                        <h3>ألواح خشب معاد تدويره</h3>
+                        <p>خشب عالي الجودة معاد تدويره من مصادر مستدامة</p>
+                        <span class="product-price">75 دج/المتر</span>
+                        <span class="eco-badge">وفر 15%</span>
+                        <button class="btn btn-primary" style="width: 100%; margin-top: 10px;" onclick="addToCart('ألواح خشب معاد تدويره', 75)">إضافة إلى السلة <i class="fas fa-shopping-cart"></i></button>
+                    </div>
+                </div>
+                
+                <div class="product-card fade-in delay-2">
+                    <div class="product-image">
+                        <img src="https://images.unsplash.com/photo-1600607688066-890987f09055?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="خدمات ترميم">
+                    </div>
+                    <div class="product-info">
+                        <h3>خدمة ترميم المطابخ</h3>
+                        <p>إعادة تأهيل المطابخ باستخدام مواد صديقة للبيئة</p>
+                        <span class="product-price">يبدأ من 2000 دج</span>
+                        <span class="eco-badge">خصم 10%</span>
+                        <button class="btn btn-primary" style="width: 100%; margin-top: 10px;" onclick="requestService('خدمة ترميم المطابخ')">طلب خدمة <i class="fas fa-tools"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Education Page -->
+    <div class="page" id="education-page">
+        <div class="container">
+            <h1 class="page-title">التوعية والموارد التعليمية</h1>
+            
+            <div class="education-grid">
+                <div class="education-card fade-in">
+                    <div class="education-image">
+                        <img src="https://images.unsplash.com/photo-1606744837616-56c9a5c6a6eb?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="المواد الصديقة للبيئة">
+                    </div>
+                    <div class="education-info">
+                        <span class="education-category">مواد بناء</span>
+                        <h3>دليل شامل لاختيار مواد البناء الصديقة للبيئة</h3>
+                        <p>تعرف على أفضل المواد المستدامة لترميم منزلك وتأثيرها الإيجابي على البيئة</p>
+                        <div class="education-meta">
+                            <span><i class="fas fa-clock"></i> 10 دقائق قراءة</span>
+                            <span><i class="fas fa-eye"></i> 1,245 مشاهدة</span>
+                        </div>
+                        <button class="btn btn-primary" style="width: 100%; margin-top: 10px;" onclick="readArticle('دليل شامل لاختيار مواد البناء الصديقة للبيئة')">قراءة المزيد <i class="fas fa-book-open"></i></button>
+                    </div>
+                </div>
+                
+                <div class="education-card fade-in delay-1">
+                    <div class="education-image">
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="ترشيد استهلاك الطاقة">
+                    </div>
+                    <div class="education-info">
+                        <span class="education-category">ترشيد الطاقة</span>
+                        <h3>كيفية توفير الطاقة في منزلك بعد الترميم</h3>
+                        <p>نصائح عملية لتقليل فواتير الطاقة مع الحفاظ على راحة منزلك</p>
+                        <div class="education-meta">
+                            <span><i class="fas fa-clock"></i> 8 دقائق قراءة</span>
+                            <span><i class="fas fa-eye"></i> 987 مشاهدة</span>
+                        </div>
+                        <button class="btn btn-primary" style="width: 100%; margin-top: 10px;" onclick="readArticle('كيفية توفير الطاقة في منزلك بعد الترميم')">قراءة المزيد <i class="fas fa-book-open"></i></button>
+                    </div>
+                </div>
+                
+                <div class="education-card fade-in delay-2">
+                    <div class="education-image">
+                        <img src="https://images.unsplash.com/photo-1600607688066-890987f09055?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="الحدائق مستدامة">
+                    </div>
+                    <div class="education-info">
+                        <span class="education-category">حدائق مستدامة</span>
+                        <h3>تصميم حدائق مستدامة مع استغلال مياه الأمطار</h3>
+                        <p>طرق مبتكرة لتصميم حدائق جميلة مع الحفاظ على الموارد المائية</p>
+                        <div class="education-meta">
+                            <span><i class="fas fa-clock"></i> 12 دقائق قراءة</span>
+                            <span><i class="fas fa-eye"></i> 1,532 مشاهدة</span>
+                        </div>
+                        <button class="btn btn-primary" style="width: 100%; margin-top: 10px;" onclick="readArticle('تصميم حدائق مستدامة مع استغلال مياه الأمطار')">قراءة المزيد <i class="fas fa-book-open"></i></button>
+                    </div>
+                </div>
+                
+                <div class="education-card fade-in delay-3">
+                    <div class="education-image">
+                        <img src="https://images.unsplash.com/photo-1600607687920-4e2a09cf159d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="الطاقة الشمسية">
+                    </div>
+                    <div class="education-info">
+                        <span class="education-category">طاقة متجددة</span>
+                        <h3>دليل تركيب أنظمة الطاقة الشمسية في المنازل</h3>
+                        <p>كل ما تحتاج معرفته عن تكاليف وفوائد أنظمة الطاقة الشمسية للمنازل</p>
+                        <div class="education-meta">
+                            <span><i class="fas fa-clock"></i> 15 دقائق قراءة</span>
+                            <span><i class="fas fa-eye"></i> 2,100 مشاهدة</span>
+                        </div>
+                        <button class="btn btn-primary" style="width: 100%; margin-top: 10px;" onclick="readArticle('دليل تركيب أنظمة الطاقة الشمسية في المنازل')">قراءة المزيد <i class="fas fa-book-open"></i></button>
+                    </div>
+                </div>
+                
+                <div class="education-card fade-in delay-4">
+                    <div class="education-image">
+                        <img src="https://images.unsplash.com/photo-1600585152915-d208bec867a1?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="إعادة التدوير">
+                    </div>
+                    <div class="education-info">
+                        <span class="education-category">إعادة التدوير</span>
+                        <h3>كيفية إعادة تدوير مواد البناء القديمة</h3>
+                        <p>أفكار مبتكرة لإعادة استخدام مواد البناء في مشاريع جديدة</p>
+                        <div class="education-meta">
+                            <span><i class="fas fa-clock"></i> 7 دقائق قراءة</span>
+                            <span><i class="fas fa-eye"></i> 876 مشاهدة</span>
+                        </div>
+                        <button class="btn btn-primary" style="width: 100%; margin-top: 10px;" onclick="readArticle('كيفية إعادة تدوير مواد البناء القديمة')">قراءة المزيد <i class="fas fa-book-open"></i></button>
+                    </div>
+                </div>
+                
+                <div class="education-card fade-in">
+                    <div class="education-image">
+                        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="التمويل الأخضر">
+                    </div>
+                    <div class="education-info">
+                        <span class="education-category">تمويل</span>
+                        <h3>التمويل الأخضر لمشاريع الترميم المستدامة</h3>
+                        <p>تعرف على برامج التمويل المتاحة لمشاريع الترميم الصديقة للبيئة</p>
+                        <div class="education-meta">
+                            <span><i class="fas fa-clock"></i> 9 دقائق قراءة</span>
+                            <span><i class="fas fa-eye"></i> 1,020 مشاهدة</span>
+                        </div>
+                        <button class="btn btn-primary" style="width: 100%; margin-top: 10px;" onclick="readArticle('التمويل الأخضر لمشاريع الترميم المستدامة')">قراءة المزيد <i class="fas fa-book-open"></i></button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Partners Page -->
+    <div class="page" id="partners-page">
+        <div class="container">
+            <h1 class="page-title">شركاؤنا في الاستدامة</h1>
+            
+            <div class="partner-card fade-in">
+                <div class="partner-logo-large">
+                    <img src="https://via.placeholder.com/150x80/2c3e50/ffffff?text=Green+Build" alt="Green Build">
+                </div>
+                <div class="partner-info">
+                    <h3>Green Build</h3>
+                    <p>مزود رائد لمواد البناء الصديقة للبيئة، يقدم منتجات مستدامة عالية الجودة بأسعار تنافسية.</p>
+                    <div class="partner-offer">خصم 15% لأعضاء Co Reno على جميع المنتجات</div>
+                    <button class="btn btn-primary" style="margin-top: 10px;" onclick="visitPartner('Green Build')">زيارة الموقع <i class="fas fa-external-link-alt"></i></button>
+                </div>
+            </div>
+            
+            <div class="partner-card fade-in delay-1">
+                <div class="partner-logo-large">
+                    <img src="https://via.placeholder.com/150x80/2c3e50/ffffff?text=Eco+Solutions" alt="Eco Solutions">
+                </div>
+                <div class="partner-info">
+                    <h3>Eco Solutions</h3>
+                    <p>شركة متخصصة في حلول الطاقة المتجددة والأنظمة الذكية لترشيد استهلاك الطاقة في المباني.</p>
+                    <div class="partner-offer">استشارات مجانية لأول 100 مشترك في المنصة</div>
+                    <button class="btn btn-primary" style="margin-top: 10px;" onclick="visitPartner('Eco Solutions')">زيارة الموقع <i class="fas fa-external-link-alt"></i></button>
+                </div>
+            </div>
+            
+            <div class="partner-card fade-in delay-2">
+                <div class="partner-logo-large">
+                    <img src="https://via.placeholder.com/150x80/2c3e50/ffffff?text=Sustainable+Wood" alt="Sustainable Wood">
+                </div>
+                <div class="partner-info">
+                    <h3>Sustainable Wood</h3>
+                    <p>مورد للأخشاب المعاد تدويرها والمصادر بشكل مستدام، مع شهادات بيئية معتمدة.</p>
+                    <div class="partner-offer">توصيل مجاني لجميع الطلبات فوق 2000 دج</div>
+                    <button class="btn btn-primary" style="margin-top: 10px;" onclick="visitPartner('Sustainable Wood')">زيارة الموقع <i class="fas fa-external-link-alt"></i></button>
+                </div>
+            </div>
+            
+            <div class="partner-card fade-in delay-3">
+                <div class="partner-logo-large">
+                    <img src="https://via.placeholder.com/150x80/2c3e50/ffffff?text=Water+Save" alt="Water Save">
+                </div>
+                <div class="partner-info">
+                    <h3>Water Save</h3>
+                    <p>خبراء في حلول ترشيد استهلاك المياه، أنظمة الري الذكية، وإعادة استخدام المياه.</p>
+                    <div class="partner-offer">تركيب مجاني لأنظمة ترشيد المياه لأول 50 مشترك</div>
+                    <button class="btn btn-primary" style="margin-top: 10px;" onclick="visitPartner('Water Save')">زيارة الموقع <i class="fas fa-external-link-alt"></i></button>
+                </div>
+            </div>
+            
+            <div class="partner-card fade-in delay-4">
+                <div class="partner-logo-large">
+                    <img src="https://via.placeholder.com/150x80/2c3e50/ffffff?text=Green+Finance" alt="Green Finance">
+                </div>
+                <div class="partner-info">
+                    <h3>Green Finance</h3>
+                    <p>مؤسسة تمويلية متخصصة في دعم المشاريع البيئية المستدامة بفائدة مخفضة.</p>
+                    <div class="partner-offer">تمويل يصل إلى 100,000 دج بفائدة 2% لأعضاء المنصة</div>
+                    <button class="btn btn-primary" style="margin-top: 10px;" onclick="visitPartner('Green Finance')">زيارة الموقع <i class="fas fa-external-link-alt"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Contact Page -->
+    <div class="page" id="contact-page">
+        <div class="container">
+            <h1 class="page-title">اتصل بنا</h1>
+            
+            <div class="contact-info">
+                <div class="contact-card fade-in">
+                    <i class="fas fa-map-marker-alt"></i>
+                    <h3>عنواننا</h3>
+                    <p>العاصمة الجزائر، حي النهضة، شارع الاستقلال</p>
+                </div>
+                
+                <div class="contact-card fade-in delay-1">
+                    <i class="fas fa-phone"></i>
+                    <h3>هاتفنا</h3>
+                    <p>0676299420</p>
+                    <p>023456789</p>
+                </div>
+                
+                <div class="contact-card fade-in delay-2">
+                    <i class="fas fa-envelope"></i>
+                    <h3>البريد الإلكتروني</h3>
+                    <p>douamehdi@gmail.com</p>
+                    <p>info@coreno.com</p>
+                </div>
+                
+                <div class="contact-card fade-in delay-3">
+                    <i class="fas fa-clock"></i>
+                    <h3>ساعات العمل</h3>
+                    <p>الأحد - الخميس: 8 ص - 5 م</p>
+                    <p>الجمعة والسبت: مغلق</p>
+                </div>
+            </div>
+            
+            <div class="contact-form fade-in">
+                <h2 style="margin-bottom: 1.5rem;">أرسل لنا رسالة</h2>
+                
+                <div class="form-group">
+                    <label for="contact-name">الاسم الكامل</label>
+                    <input type="text" id="contact-name" placeholder="أدخل اسمك الكامل">
+                </div>
+                
+                <div class="form-group">
+                    <label for="contact-email">البريد الإلكتروني</label>
+                    <input type="email" id="contact-email" placeholder="أدخل بريدك الإلكتروني">
+                </div>
+                
+                <div class="form-group">
+                    <label for="contact-subject">موضوع الرسالة</label>
+                    <input type="text" id="contact-subject" placeholder="موضوع الرسالة">
+                </div>
+                
+                <div class="form-group">
+                    <label for="contact-message">الرسالة</label>
+                    <textarea id="contact-message" placeholder="اكتب رسالتك هنا..." rows="5"></textarea>
+                </div>
+                
+                <button class="btn btn-primary" onclick="submitContactForm()">إرسال الرسالة <i class="fas fa-paper-plane"></i></button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Complaints Page -->
+    <div class="page" id="complaints-page">
+        <div class="container">
+            <h1 class="page-title">تقديم شكوى</h1>
+            
+            <div class="complaint-form fade-in">
+                <p style="margin-bottom: 1.5rem;">نحن هنا لمساعدتك. إذا كان لديك أي شكوى أو استفسار، يرجى تعبئة النموذج أدناه وسنقوم بالرد عليك في أقرب وقت ممكن.</p>
+                
+                <div class="form-group">
+                    <label for="complaint-name">الاسم الكامل</label>
+                    <input type="text" id="complaint-name" placeholder="أدخل اسمك الكامل">
+                </div>
+                
+                <div class="form-group">
+                    <label for="complaint-email">البريد الإلكتروني</label>
+                    <input type="email" id="complaint-email" placeholder="أدخل بريدك الإلكتروني">
+                </div>
+                
+                <div class="form-group">
+                    <label for="complaint-phone">رقم الهاتف</label>
+                    <input type="tel" id="complaint-phone" placeholder="أدخل رقم هاتفك">
+                </div>
+                
+                <div class="form-group">
+                    <label for="complaint-type">نوع الشكوى</label>
+                    <select id="complaint-type">
+                        <option value="">اختر نوع الشكوى</option>
+                        <option value="service">شكوى على الخدمة</option>
+                        <option value="product">شكوى على المنتج</option>
+                        <option value="delivery">شكوى على التوصيل</option>
+                        <option value="technical">مشكلة فنية</option>
+                        <option value="other">أخرى</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="complaint-details">تفاصيل الشكوى</label>
+                    <textarea id="complaint-details" placeholder="صف شكواك بالتفصيل..." rows="5"></textarea>
+                </div>
+                
+                <div class="form-group">
+                    <label for="complaint-file">إرفاق ملف (اختياري)</label>
+                    <input type="file" id="complaint-file">
+                </div>
+                
+                <button class="btn btn-primary" onclick="submitComplaint()">إرسال الشكوى <i class="fas fa-paper-plane"></i></button>
+            </div>
+
+            <div class="complaint-status-list" style="margin-top: 3rem;">
+                <h2>حالة الشكاوى السابقة</h2>
+                
+                <div class="complaint-item" style="background-color: white; padding: 1.5rem; border-radius: var(--border-radius); box-shadow: var(--shadow); margin-top: 1rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <h3>شكوى على تأخر التوصيل</h3>
+                        <span class="complaint-status status-resolved">تم الحل</span>
+                    </div>
+                    <p style="margin: 1rem 0;">طلب رقم #12345 - تأخر في توصيل مواد البناء لمدة 3 أيام</p>
+                    <div style="color: var(--text-light); font-size: 0.9rem;">
+                        <i class="fas fa-clock"></i> 15 أكتوبر 2023
+                    </div>
+                </div>
+                
+                <div class="complaint-item" style="background-color: white; padding: 1.5rem; border-radius: var(--border-radius); box-shadow: var(--shadow); margin-top: 1rem;">
+                    <div style="display: flex; justify-content: space-between; align-items: center;">
+                        <h3>شكوى على جودة المنتج</h3>
+                        <span class="complaint-status status-in-progress">قيد المعالجة</span>
+                    </div>
+                    <p style="margin: 1rem 0;">طلب رقم #12346 - خشب معاد تدويره به عيوب في التصنيع</p>
+                    <div style="color: var(--text-light); font-size: 0.9rem;">
+                        <i class="fas fa-clock"></i> 20 أكتوبر 2023
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Admin Panel Page -->
+    <div class="page" id="admin-page">
+        <div class="container">
+            <h1 class="page-title">لوحة التحكم</h1>
+            
+            <div class="admin-panel fade-in">
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <h3>154</h3>
+                        <p>المستخدمين النشطين</p>
+                    </div>
+                    
+                    <div class="stat-box">
+                        <h3>87</h3>
+                        <p>المشاريع الجارية</p>
+                    </div>
+                    
+                    <div class="stat-box">
+                        <h3>42</h3>
+                        <p>طلبات اليوم</p>
+                    </div>
+                    
+                    <div class="stat-box">
+                        <h3>9.2%</h3>
+                        <p>نمو الشهر</p>
+                    </div>
+                </div>
+                
+                <h2>إدارة المستخدمين</h2>
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>الإجراءات</th>
+                            <th>الحالة</th>
+                            <th>الدور</th>
+                            <th>البريد الإلكتروني</th>
+                            <th>اسم المستخدم</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="admin-actions">
+                                <button class="btn btn-primary btn-sm" onclick="editUser(1)">تعديل</button>
+                                <button class="btn btn-danger btn-sm" onclick="deleteUser(1)">حذف</button>
+                            </td>
+                            <td><span class="complaint-status status-resolved">نشط</span></td>
+                            <td>مدير</td>
+                            <td>admin@coreno.com</td>
+                            <td>أحمد السليم</td>
+                        </tr>
+                        <tr>
+                            <td class="admin-actions">
+                                <button class="btn btn-primary btn-sm" onclick="editUser(2)">تعديل</button>
+                                <button class="btn btn-danger btn-sm" onclick="deleteUser(2)">حذف</button>
+                            </td>
+                            <td><span class="complaint-status status-resolved">نشط</span></td>
+                            <td>مقاول</td>
+                            <td>sara@coreno.com</td>
+                            <td>سارة الناصر</td>
+                        </tr>
+                        <tr>
+                            <td class="admin-actions">
+                                <button class="btn btn-primary btn-sm" onclick="editUser(3)">تعديل</button>
+                                <button class="btn btn-warning btn-sm" onclick="suspendUser(3)">تعليق</button>
+                            </td>
+                            <td><span class="complaint-status status-pending">موقوف</span></td>
+                            <td>مستخدم</td>
+                            <td>user@example.com</td>
+                            <td>محمد أحمد</td>
+                        </tr>
+                    </tbody>
+                </table>
+                
+                <h2 style="margin-top: 2rem;">إدارة الشكاوى</h2>
+                <table class="admin-table">
+                    <thead>
+                        <tr>
+                            <th>الإجراءات</th>
+                            <th>الحالة</th>
+                            <th>النوع</th>
+                            <th>التاريخ</th>
+                            <th>رقم الشكوى</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td class="admin-actions">
+                                <button class="btn btn-primary btn-sm" onclick="viewComplaint(12345)">عرض</button>
+                                <button class="btn btn-danger btn-sm" onclick="deleteComplaint(12345)">حذف</button>
+                            </td>
+                            <td><span class="complaint-status status-resolved">تم الحل</span></td>
+                            <td>تأخر التوصيل</td>
+                            <td>15/10/2023</td>
+                            <td>#12345</td>
+                        </tr>
+                        <tr>
+                                                    <td class="admin-actions">
+                            <button class="btn btn-primary btn-sm" onclick="viewComplaint(12346)">عرض</button>
+                            <button class="btn btn-danger btn-sm" onclick="deleteComplaint(12346)">حذف</button>
+                        </td>
+                        <td><span class="complaint-status status-in-progress">قيد المعالجة</span></td>
+                        <td>جودة المنتج</td>
+                        <td>20/10/2023</td>
+                        <td>#12346</td>
+                    </tr>
+                    <tr>
+                        <td class="admin-actions">
+                            <button class="btn btn-primary btn-sm" onclick="viewComplaint(12347)">عرض</button>
+                            <button class="btn btn-danger btn-sm" onclick="deleteComplaint(12347)">حذف</button>
+                        </td>
+                        <td><span class="complaint-status status-pending">قيد المراجعة</span></td>
+                        <td>مشكلة فنية</td>
+                        <td>22/10/2023</td>
+                        <td>#12347</td>
+                    </tr>
+                </tbody>
+            </table>
+            
+            <h2 style="margin-top: 2rem;">إدارة المحتوى</h2>
+            <div style="display: flex; gap: 1rem; margin-top: 1rem;">
+                <button class="btn btn-primary" onclick="addArticle()">إضافة مقال <i class="fas fa-plus"></i></button>
+                <button class="btn btn-primary" onclick="manageProducts()">إدارة المنتجات <i class="fas fa-box"></i></button>
+                <button class="btn btn-primary" onclick="viewReports()">التقارير <i class="fas fa-chart-bar"></i></button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Login Page -->
+<div class="page" id="login-page">
+    <div class="container">
+        <h1 class="page-title">تسجيل الدخول</h1>
+        
+        <div style="max-width: 500px; margin: 0 auto; background-color: white; padding: 2rem; border-radius: var(--border-radius); box-shadow: var(--shadow);">
+            <div class="form-group">
+                <label for="login-email">البريد الإلكتروني</label>
+                <input type="email" id="login-email" placeholder="أدخل بريدك الإلكتروني">
+            </div>
+            
+            <div class="form-group">
+                <label for="login-password">كلمة المرور</label>
+                <input type="password" id="login-password" placeholder="أدخل كلمة المرور">
+            </div>
+            
+            <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 1.5rem;">
+                <div>
+                    <input type="checkbox" id="remember">
+                    <label for="remember">تذكرني</label>
+                </div>
+                <a href="#" style="color: var(--primary-color);" onclick="showPage('forgot-password'); return false;">هل نسيت كلمة المرور؟</a>
+            </div>
+            
+            <button class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1rem;" onclick="login()">تسجيل الدخول</button>
+            
+            <div style="text-align: center; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid #eee;">
+                <p>ليس لديك حساب؟ <a href="#" style="color: var(--primary-color);" onclick="showPage('register'); return false;">إنشاء حساب جديد</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Register Page -->
+<div class="page" id="register-page">
+    <div class="container">
+        <h1 class="page-title">إنشاء حساب جديد</h1>
+        
+        <div style="max-width: 500px; margin: 0 auto; background-color: white; padding: 2rem; border-radius: var(--border-radius); box-shadow: var(--shadow);">
+            <div class="form-group">
+                <label for="register-name">الاسم الكامل</label>
+                <input type="text" id="register-name" placeholder="أدخل اسمك الكامل">
+            </div>
+            
+            <div class="form-group">
+                <label for="register-email">البريد الإلكتروني</label>
+                <input type="email" id="register-email" placeholder="أدخل بريدك الإلكتروني">
+            </div>
+            
+            <div class="form-group">
+                <label for="register-phone">رقم الهاتف</label>
+                <input type="tel" id="register-phone" placeholder="أدخل رقم هاتفك">
+            </div>
+            
+            <div class="form-group">
+                <label for="register-password">كلمة المرور</label>
+                <input type="password" id="register-password" placeholder="أنشئ كلمة مرور قوية">
+            </div>
+            
+            <div class="form-group">
+                <label for="register-confirm">تأكيد كلمة المرور</label>
+                <input type="password" id="register-confirm" placeholder="أعد إدخال كلمة المرور">
+            </div>
+            
+            <div class="form-group">
+                <label for="user-type">نوع الحساب</label>
+                <select id="user-type">
+                    <option value="">اختر نوع الحساب</option>
+                    <option value="homeowner">صاحب منزل</option>
+                    <option value="professional">محترف (مقاول، مهندس)</option>
+                    <option value="supplier">مورد</option>
+                </select>
+            </div>
+            
+            <div style="margin-bottom: 1.5rem;">
+                <input type="checkbox" id="terms">
+                <label for="terms">أوافق على <a href="#" style="color: var(--primary-color);">الشروط والأحكام</a> و <a href="#" style="color: var(--primary-color;">سياسة الخصوصية</a></label>
+            </div>
+            
+            <button class="btn btn-primary" style="width: 100%; padding: 1rem; font-size: 1rem;" onclick="register()">إنشاء حساب</button>
+            
+            <div style="text-align: center; margin-top: 1.5rem; padding-top: 1.5rem; border-top: 1px solid #eee;">
+                <p>لديك حساب بالفعل؟ <a href="#" style="color: var(--primary-color);" onclick="showPage('login'); return false;">تسجيل الدخول</a></p>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Support Page -->
+<div class="page" id="support-page">
+    <div class="container">
+        <h1 class="page-title">الدعم الفني والمساعدة</h1>
+        
+        <div class="support-tabs">
+            <div class="support-tab active" onclick="openSupportTab('faq')">الأسئلة الشائعة</div>
+            <div class="support-tab" onclick="openSupportTab('contact')">اتصل بنا</div>
+            <div class="support-tab" onclick="openSupportTab('security')">الأمان والخصوصية</div>
+        </div>
+        
+        <div class="support-content active" id="faq-content">
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    كيف يمكنني إنشاء حساب جديد على المنصة؟
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>لإنشاء حساب جديد، انقر على زر "إنشاء حساب" في أعلى الصفحة، ثم املأ المعلومات المطلوبة مثل الاسم، البريد الإلكتروني، وكلمة المرور. بعد التأكد من صحة المعلومات، انقر على زر التسجيل.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    كيف يمكنني إضافة مشروع جديد؟
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>بعد تسجيل الدخول، انتقل إلى صفحة "المشاريع"، ثم انقر على "مشروع جديد". املأ تفاصيل المشروع مثل النوع، الموقع، الميزانية، والمواصفات البيئية المطلوبة. يمكنك أيضاً رفع صور أو مخططات للمشروع.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    كيف تتم عملية الدفع على المنصة؟
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>نقدم عدة خيارات دفع آمنة تشمل: بطاقات الائتمان، التحويل البنكي، ومدفوعات عبر محافظ إلكترونية. يتم تأمين جميع المعاملات باستخدام تشفير SSL عالي الجودة لحماية معلوماتك المالية.</p>
+                </div>
+            </div>
+            
+            <div class="faq-item">
+                <div class="faq-question" onclick="toggleFaq(this)">
+                    كيف يمكنني تغيير اللغة في الواجهة؟
+                    <i class="fas fa-chevron-down"></i>
+                </div>
+                <div class="faq-answer">
+                    <p>انقر على قائمة اللغة في أعلى الصفحة (بجانب اسم المستخدم)، ثم اختر اللغة المطلوبة من القائمة المنسدلة. ستتغير واجهة المنصة فوراً إلى اللغة التي اخترتها.</p>
+                </div>
+            </div>
+        </div>
+        
+        <div class="support-content" id="contact-content">
+            <div class="contact-form">
+                <div class="form-group">
+                    <label for="support-name">الاسم الكامل</label>
+                    <input type="text" id="support-name" placeholder="أدخل اسمك الكامل">
+                </div>
+                
+                <div class="form-group">
+                    <label for="support-email">البريد الإلكتروني</label>
+                    <input type="email" id="support-email" placeholder="أدخل بريدك الإلكتروني">
+                </div>
+                
+                <div class="form-group">
+                    <label for="support-subject">الموضوع</label>
+                    <select id="support-subject">
+                        <option value="">اختر موضوع الرسالة</option>
+                        <option value="technical">مشكلة فنية</option>
+                        <option value="billing">استفسار عن الفواتير</option>
+                        <option value="project">استفسار عن مشروع</option>
+                        <option value="other">موضوع آخر</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="support-message">الرسالة</label>
+                    <textarea id="support-message" placeholder="صف مشكلتك أو استفسارك بالتفصيل"></textarea>
+                </div>
+                
+                <button class="btn btn-primary" onclick="submitSupportRequest()">إرسال الرسالة</button>
+            </div>
+        </div>
+        
+        <div class="support-content" id="security-content">
+            <div style="background-color: white; padding: 2rem; border-radius: var(--border-radius); box-shadow: var(--shadow);">
+                <h2 style="margin-bottom: 1.5rem;">حماية بياناتك وأمان حسابك</h2>
+                
+                <div style="margin-bottom: 2rem;">
+                    <h3 style="color: var(--primary-color); margin-bottom: 1rem;">نقاط الأمان الأساسية</h3>
+                    <ul style="list-style-type: disc; padding-right: 1.5rem;">
+                        <li style="margin-bottom: 0.8rem;">جميع البيانات الشخصية والمالية مشفرة باستخدام تقنية SSL 256-bit</li>
+                        <li style="margin-bottom: 0.8rem;">لا نقوم بتخزين أي معلومات بطاقات ائتمان على خوادمنا</li>
+                        <li style="margin-bottom: 0.8rem;">نقوم بعمليات تدقيق أمنية منتظمة للكشف عن أي ثغرات</li>
+                        <li style="margin-bottom: 0.8rem;">نلتزم بمعايير حماية البيانات العالمية (GDPR)</li>
+                    </ul>
+                </div>
+                
+                <div style="margin-bottom: 2rem;">
+                    <h3 style="color: var(--primary-color); margin-bottom: 1rem;">نصائح لحماية حسابك</h3>
+                    <ul style="list-style-type: disc; padding-right: 1.5rem;">
+                        <li style="margin-bottom: 0.8rem;">استخدم كلمة مرور قوية تحتوي على أحرف كبيرة وصغيرة وأرقام ورموز</li>
+                        <li style="margin-bottom: 0.8rem;">لا تشارك بيانات الدخول الخاصة بك مع أي شخص</li>
+                        <li style="margin-bottom: 0.8rem;">قم بتحديث كلمة المرور بشكل دوري (كل 3 أشهر على الأقل)</li>
+                        <li style="margin-bottom: 0.8rem;">تفقد نشاط الحساب بانتظام من خلال صفحة الأمان</li>
+                    </ul>
+                </div>
+                
+                <div>
+                    <h3 style="color: var(--primary-color); margin-bottom: 1rem;">الإبلاغ عن مشكلات أمنية</h3>
+                    <p>إذا لاحظت أي نشاط مشبوه أو تعرضت لمشكلة أمنية، يرجى التواصل معنا فوراً على <a href="mailto:security@coreno.com" style="color: var(--primary-color);">security@coreno.com</a>.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Profile Page -->
+<div class="page" id="profile-page">
+    <div class="container">
+        <h1 class="page-title">الملف الشخصي</h1>
+        
+        <div class="profile-header">
+            <div class="profile-avatar">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=200&q=80" alt="محمد أحمد">
+            </div>
+            <div class="profile-info">
+                <h2>محمد أحمد</h2>
+                <p class="profile-title">مقاول محترف في الترميم المستدام</p>
+                <div class="profile-rating">
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star"></i>
+                    <i class="fas fa-star-half-alt"></i>
+                    <span>(24 تقييم)</span>
+                </div>
+            </div>
+        </div>
+
+        <div class="profile-stats">
+            <div class="stat-item">
+                <div class="stat-number">12</div>
+                <div class="stat-label">مشروع مكتمل</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">4.8</div>
+                <div class="stat-label">تقييم</div>
+            </div>
+            <div class="stat-item">
+                <div class="stat-number">98%</div>
+                <div class="stat-label">رضا العملاء</div>
+            </div>
+        </div>
+
+        <div class="profile-badges">
+            <span class="badge"><i class="fas fa-award"></i> محترف معتمد</span>
+            <span class="badge"><i class="fas fa-leaf"></i> صديق للبيئة</span>
+            <span class="badge"><i class="fas fa-check-circle"></i> موثوق</span>
+        </div>
+
+        <div class="profile-content">
+            <div class="content-section">
+                <h3><i class="fas fa-user"></i> عني</h3>
+                <p>مقاول محترف متخصص في مشاريع الترميم المستدامة بخبرة تزيد عن 10 سنوات. ألتزم باستخدام المواد الصديقة للبيئة وتقديم حلول مبتكرة.</p>
+            </div>
+
+            <div class="content-section">
+                <h3><i class="fas fa-briefcase"></i> المشاريع الحديثة</h3>
+                <div class="projects-list">
+                    <div class="project-item">
+                        <span class="project-status status-completed">مكتمل</span>
+                        <h4>ترميم فيلا سكنية</h4>
+                        <p>ترميم كامل باستخدام مواد مستدامة</p>
+                        <div class="project-meta">
+                            <span>75,000 دج</span>
+                            <span>نوفمبر 2023</span>
+                        </div>
+                    </div>
+                    <div class="project-item">
+                        <span class="project-status status-in-progress">قيد العمل</span>
+                        <h4>تجديد مطعم</h4>
+                        <p>تجديد باستخدام أثاث معاد تدويره</p>
+                        <div class="project-meta">
+                            <span>45,000 دج</span>
+                            <span>ديسمبر 2023</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h3><i class="fas fa-star"></i> آخر التقييمات</h3>
+                <div class="reviews-list">
+                    <div class="review-item">
+                        <div class="reviewer">
+                            <strong>سارة محمد</strong>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                            </div>
+                        </div>
+                        <p>"محترف جداً والتزم بالمواصفات البيئية. المشروع تم بتكلفة أقل وبجودة عالية."</p>
+                        <span class="review-date">قبل 5 أيام</span>
+                    </div>
+                    <div class="review-item">
+                        <div class="reviewer">
+                            <strong>خالد الفهد</strong>
+                            <div class="rating">
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="fas fa-star"></i>
+                                <i class="far fa-star"></i>
+                            </div>
+                        </div>
+                        <p>"عمل رائع في الترميم واستخدم مواد صديقة للبيئة."</p>
+                        <span class="review-date">قبل 3 أسابيع</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="content-section">
+                <h3><i class="fas fa-phone"></i> معلومات الاتصال</h3>
+                <div class="contact-info">
+                    <p><i class="fas fa-phone"></i> 0676299420</p>
+                    <p><i class="fas fa-envelope"></i> m.ahmed@example.com</p>
+                    <p><i class="fas fa-map-marker-alt"></i> العاصمة الجزائر</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Messages Page -->
+<div class="page" id="messages-page">
+    <div class="container">
+        <h1 class="page-title">الرسائل</h1>
+        
+        <div class="messages-container">
+            <div class="conversations-list">
+                <div class="conversation active" onclick="selectConversation(1)">
+                    <div class="conversation-header">
+                        <div class="conversation-user">
+                            <div class="conversation-avatar">
+                                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="أحمد السليم">
+                            </div>
+                            <h3>أحمد السليم</h3>
+                        </div>
+                        <span class="conversation-time">10:30 ص</span>
+                    </div>
+                    <p class="conversation-preview">شكراً على العمل الرائع في ترميم غرفة المعيشة. هل يمكنني...</p>
+                </div>
+                
+                <div class="conversation" onclick="selectConversation(2)">
+                    <div class="conversation-header">
+                        <div class="conversation-user">
+                            <div class="conversation-avatar">
+                                                                <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="سارة الناصر">
+                            </div>
+                            <h3>سارة الناصر</h3>
+                        </div>
+                        <span class="conversation-time">أمس</span>
+                    </div>
+                    <p class="conversation-preview">أود استشارتك بخصوص مشروع الترميم الجديد...</p>
+                </div>
+                
+                <div class="conversation" onclick="selectConversation(3)">
+                    <div class="conversation-header">
+                        <div class="conversation-user">
+                            <div class="conversation-avatar">
+                                <img src="https://images.unsplash.com/photo-1500648767791-00dcc994a43e?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="خالد الفهد">
+                            </div>
+                            <h3>خالد الفهد</h3>
+                        </div>
+                        <span class="conversation-time">٢٤/٠٦</span>
+                    </div>
+                    <p class="conversation-preview">هل يمكنك تقديم عرض سعر لترميم الحمام؟</p>
+                </div>
+                
+                <div class="conversation" onclick="selectConversation(4)">
+                    <div class="conversation-header">
+                        <div class="conversation-user">
+                            <div class="conversation-avatar">
+                                <img src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=100&q=80" alt="نورة عبد الرحمن">
+                            </div>
+                            <h3>نورة عبد الرحمن</h3>
+                        </div>
+                        <span class="conversation-time">٢٣/٠٦</span>
+                    </div>
+                    <p class="conversation-preview">شكراً على النصيحة بخصوص مواد البناء...</p>
+                </div>
+            </div>
+            
+            <div class="message-view">
+                <div class="message-header">
+                    <h3>أحمد السليم</h3>
+                </div>
+                
+                <div class="message-body">
+                    <div class="message received">
+                        <div class="message-content">
+                            <p>مرحباً محمد، شكراً على العمل الرائع في ترميم غرفة المعيشة. هل يمكنني الحصول على فاتورة مفصلة للمواد المستخدمة؟</p>
+                        </div>
+                        <div class="message-time">10:30 ص</div>
+                    </div>
+                    
+                    <div class="message sent">
+                        <div class="message-content">
+                            <p>أهلًا أحمد، بالتأكيد. سأرسل لك الفاتورة خلال ساعة. هل هناك أي شيء آخر تحتاجه؟</p>
+                        </div>
+                        <div class="message-time">10:35 ص</div>
+                    </div>
+                    
+                    <div class="message received">
+                        <div class="message-content">
+                            <p>شكراً لك. أود أيضاً أن أسأل عن إمكانية تمديد المشروع ليشمل تجديد مدخل المنزل بنفس المواد المستدامة.</p>
+                        </div>
+                        <div class="message-time">10:40 ص</div>
+                    </div>
+                    
+                    <div class="message sent">
+                        <div class="message-content">
+                            <p>نعم بالطبع، يمكنني إعداد عرض سعر خاص لتجديد المدخل خلال 24 ساعة. هل تود أن أزورك غداً لرؤية المساحة؟</p>
+                        </div>
+                        <div class="message-time">10:42 ص</div>
+                    </div>
+                </div>
+                
+                <div class="message-input">
+                    <input type="text" placeholder="اكتب رسالتك هنا...">
+                    <button onclick="sendMessage()"><i class="fas fa-paper-plane"></i></button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- Projects Page -->
+<div class="page" id="projects-page">
+    <div class="container">
+        <h1 class="page-title">إدارة المشاريع</h1>
+        
+        <div class="dashboard-grid">
+            <div class="sidebar">
+                <ul class="sidebar-menu">
+                    <li><a href="#" class="active"><i class="fas fa-home"></i> نظرة عامة</a></li>
+                    <li><a href="#"><i class="fas fa-plus-circle"></i> مشروع جديد</a></li>
+                    <li><a href="#"><i class="fas fa-tasks"></i> جميع المشاريع</a></li>
+                    <li><a href="#"><i class="fas fa-calendar-alt"></i> الجدول الزمني</a></li>
+                    <li><a href="#"><i class="fas fa-file-invoice-dollar"></i> الفواتير</a></li>
+                    <li><a href="#"><i class="fas fa-users"></i> الفريق</a></li>
+                    <li><a href="#"><i class="fas fa-cog"></i> الإعدادات</a></li>
+                </ul>
+            </div>
+            
+            <div class="dashboard-content">
+                <h2>مشاريعي النشطة</h2>
+                
+                <div class="projects-grid">
+                    <div class="project-card">
+                        <div class="project-image">
+                            <img src="https://images.unsplash.com/photo-1600121848594-d8644e57abab?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="ترميم غرفة المعيشة">
+                        </div>
+                        <div class="project-info">
+                            <span class="project-status status-in-progress">قيد التنفيذ</span>
+                            <h3>ترميم غرفة المعيشة</h3>
+                            <p>إعادة تصميم غرفة المعيشة باستخدام مواد معاد تدويرها وأثاث مستدام</p>
+                            <div class="project-meta">
+                                <span><i class="fas fa-calendar-alt"></i> 15 يوم متبقية</span>
+                                <span><i class="fas fa-dollar-sign"></i> 8,500 دج</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="project-card">
+                        <div class="project-image">
+                                                            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=500&q=80" alt="تجديد المطبخ">
+                            </div>
+                            <div class="project-info">
+                                <span class="project-status status-planning">في مرحلة التخطيط</span>
+                                <h3>تجديد المطبخ</h3>
+                                <p>تركيب مطبخ جديد باستخدام خزانات معاد تدويرها وطلاء غير سام</p>
+                                <div class="project-meta">
+                                    <span><i class="fas fa-calendar-alt"></i> يبدأ بعد أسبوع</span>
+                                    <span><i class="fas fa-dollar-sign"></i> 12,000 دج</span>
+                                </div>
+                            </div>
+                        </div>
+                        
+                        <div class="project-card">
+                            <div class="project-image">
+                                <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfea?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=c crop&w=500&q=80" alt="ترميم الحمام">
+                            </div>
+                            <div class="project-info">
+                                <span class="project-status status-completed">مكتمل</span>
+                                <h3>ترميم الحمام</h3>
+                                <p>إعادة تأهيل الحمام الرئيسي باستخدام مواد موفرة للمياه</p>
+                                <div class="project-meta">
+                                    <span><i class="fas fa-check-circle"></i> مكتمل</span>
+                                    <span><i class="fas fa-dollar-sign"></i> 6,200 دج</span>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <h2 style="margin-top: 3rem;">المهام القادمة</h2>
+                    
+                    <div class="tasks-list" style="background-color: white; padding: 1.5rem; border-radius: var(--border-radius); box-shadow: var(--shadow); margin-top: 1rem;">
+                        <div class="task" style="display: flex; align-items: center; padding: 1rem; border-bottom: 1px solid #eee;">
+                            <input type="checkbox" id="task1" style="margin-left: 1rem;">
+                            <label for="task1" style="flex: 1;">التقاط قياسات غرفة المعيشة</label>
+                            <span style="color: var(--text-light); font-size: 0.9rem;">غداً 10 ص</span>
+                        </div>
+                        
+                        <div class="task" style="display: flex; align-items: center; padding: 1rem; border-bottom: 1px solid #eee;">
+                            <input type="checkbox" id="task2" style="margin-left: 1rem;">
+                            <label for="task2" style="flex: 1;">مقابلة مع مقاول الأرضيات</label>
+                            <span style="color: var(--text-light); font-size: 0.9rem;">بعد غد 2 م</span>
+                        </div>
+                        
+                        <div class="task" style="display: flex; align-items: center; padding: 1rem;">
+                            <input type="checkbox" id="task3" style="margin-left: 1rem;">
+                            <label for="task3" style="flex: 1;">دفع الدفعة الأولى لمشروع المطبخ</label>
+                            <span style="color: var(--text-light); font-size: 0.9rem;">الجمعة القادمة</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-container">
+                <div class="footer-about">
+                    <a href="#" class="footer-logo" onclick="showPage('home'); return false;">
+                        <i class="fas fa-leaf"></i>
+                        M&D <span>Reno</span> CO
+                    </a>
+                    <p>منصة رائدة في مجال الترميم الاقتصادي الصديق للبيئة، تهدف إلى ربط أصحاب المشاريع بالمهنيين والموردين لتقديم حلول مستدامة واقتصادية و البناء المشترك .</p>
+                    <div class="social-links">
+                        <a href="#"><i class="fab fa-facebook-f"></i></a>
+                        <a href="#"><i class="fab fa-twitter"></i></a>
+                        <a href="#"><i class="fab fa-instagram"></i></a>
+                        <a href="#"><i class="fab fa-linkedin-in"></i></a>
+                        <a href="#"><i class="fab fa-youtube"></i></a>
+                    </div>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>روابط سريعة</h3>
+                    <ul>
+                        <li><a href="#" onclick="showPage('home'); return false;">الرئيسية</a></li>
+                        <li><a href="#" onclick="showPage('marketplace'); return false;">السوق</a></li>
+                        <li><a href="#" onclick="showPage('education'); return false;">التوعية</a></li>
+                        <li><a href="#" onclick="showPage('partners'); return false;">الشركاء</a></li>
+                        <li><a href="#" onclick="showPage('contact'); return false;">التواصل</a></li>
+                        <li><a href="#" onclick="showPage('complaints'); return false;">الشكاوى</a></li>
+                        <li><a href="#" onclick="showPage('support'); return false;">الدعم</a></li>
+                        <li><a href="#" onclick="showPage('profile'); return false;">الملف الشخصي</a></li>
+                        <li><a href="#" onclick="showPage('messages'); return false;">الرسائل</a></li>
+                        <li><a href="#" onclick="showPage('projects'); return false;">المشاريع</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-links">
+                    <h3>الحساب</h3>
+                    <ul>
+                        <li><a href="#" onclick="showPage('login'); return false;">تسجيل الدخول</a></li>
+                        <li><a href="#" onclick="showPage('register'); return false;">إنشاء حساب</a></li>
+                        <li><a href="#" onclick="showPage('profile'); return false;">الملف الشخصي</a></li>
+                        <li><a href="#" onclick="showPage('messages'); return false;">الرسائل</a></li>
+                        <li><a href="#" onclick="showPage('support'); return false;">الدعم</a></li>
+                        <li><a href="#" onclick="showPage('dashboard'); return false;">لوحة التحكم</a></li>
+                    </ul>
+                </div>
+                
+                <div class="footer-contact">
+                    <h3>اتصل بنا</h3>
+                    <p><i class="fas fa-map-marker-alt"></i> العاصمة الجزائر</p>
+                    <p><i class="fas fa-phone"></i>0676299420</p>
+                    <p><i class="fas fa-envelope"></i> douamehdi@gmail.com</p>
+                    <p><i class="fas fa-clock"></i> الأحد - الخميس: 8 ص - 5 م</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>© 2023 M&DRenoCo . جميع الحقوق محفوظة. Powerd by KRM.</p>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Back to Top Button -->
+    <div class="back-to-top" id="backToTop">
+        <i class="fas fa-arrow-up"></i>
+    </div>
+
+    <script>
+        // Page navigation
+        function showPage(pageId) {
+            // Hide all pages
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // Show the selected page
+            const pageElement = document.getElementById(pageId + '-page');
+            if (pageElement) {
+                pageElement.classList.add('active');
+            } else {
+                console.error('Page not found:', pageId);
+                document.getElementById('home-page').classList.add('active');
+            }
+            
+            // Close mobile menu if open
+            document.getElementById('mobileNav').classList.remove('active');
+            document.getElementById('overlay').classList.remove('active');
+            
+            // Scroll to top
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+        
+        // Testimonials slider
+        let currentTestimonial = 0;
+        const testimonials = document.querySelectorAll('.testimonial');
+        const dots = document.querySelectorAll('.slider-dot');
+        
+        function goToTestimonial(index) {
+            currentTestimonial = index;
+            document.getElementById('testimonialsContainer').style.transform = `translateX(-${index * 100}%)`;
+            
+            // Update active dot
+            dots.forEach((dot, i) => {
+                dot.classList.toggle('active', i === index);
+            });
+        }
+        
+        // Auto-rotate testimonials
+        setInterval(() => {
+            currentTestimonial = (currentTestimonial + 1) % testimonials.length;
+            goToTestimonial(currentTestimonial);
+        }, 5000);
+        
+        // Mobile menu toggle
+        document.getElementById('mobileMenuBtn').addEventListener('click', function() {
+            document.getElementById('mobileNav').classList.add('active');
+            document.getElementById('overlay').classList.add('active');
+        });
+        
+        document.getElementById('closeMobileMenu').addEventListener('click', function() {
+            document.getElementById('mobileNav').classList.remove('active');
+            document.getElementById('overlay').classList.remove('active');
+        });
+        
+        document.getElementById('overlay').addEventListener('click', function() {
+            document.getElementById('mobileNav').classList.remove('active');
+            this.classList.remove('active');
+        });
+        
+        // FAQ toggle
+        function toggleFaq(element) {
+            const faqItem = element.parentElement;
+            faqItem.classList.toggle('active');
+        }
+        
+        // Support tabs
+        function openSupportTab(tabId) {
+            // Hide all tab content
+            document.querySelectorAll('.support-content').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Remove active class from all tabs
+            document.querySelectorAll('.support-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show the selected tab
+            document.getElementById(tabId + '-content').classList.add('active');
+            
+            // Add active class to the clicked tab
+            event.currentTarget.classList.add('active');
+        }
+        
+        // Back to top button
+        window.addEventListener('scroll', function() {
+            const backToTop = document.getElementById('backToTop');
+            if (window.pageYOffset > 300) {
+                backToTop.classList.add('visible');
+            } else {
+                backToTop.classList.remove('visible');
+            }
+        });
+        
+        document.getElementById('backToTop').addEventListener('click', function() {
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        });
+        
+        // Animation on scroll
+        function animateOnScroll() {
+            const elements = document.querySelectorAll('.fade-in:not(.animated)');
+            
+            elements.forEach(element => {
+                const position = element.getBoundingClientRect();
+                
+                // If element is in viewport
+                if(position.top < window.innerHeight && position.bottom >= 0) {
+                    element.classList.add('animated');
+                }
+            });
+        }
+        
+        // Initialize animations
+        window.addEventListener('load', animateOnScroll);
+        window.addEventListener('scroll', animateOnScroll);
+        
+        // Form validation and submission
+        document.querySelectorAll('form').forEach(form => {
+            form.addEventListener('submit', function(e) {
+                e.preventDefault();
+                
+                // Show loading spinner
+                const submitBtn = this.querySelector('button[type="submit"]');
+                const originalText = submitBtn.innerHTML;
+                submitBtn.innerHTML = '<div class="spinner"></div>';
+                submitBtn.disabled = true;
+                
+                // Simulate form submission
+                setTimeout(() => {
+                    alert('تم إرسال الطلب بنجاح! سنقوم بالرد عليك في أقرب وقت ممكن.');
+                    form.reset();
+                    submitBtn.innerHTML = originalText;
+                    submitBtn.disabled = false;
+                }, 2000);
+            });
+        });
+        
+        // Cart functionality
+        function addToCart(productName, price) {
+            alert(`تم إضافة ${productName} إلى السلة بسعر ${price} دج`);
+            // Here you would normally add to cart storage
+        }
+        
+        function requestService(serviceName) {
+            alert(`تم طلب خدمة ${serviceName}. سنقوم بالاتصال بك قريبًا!`);
+        }
+        
+        function readArticle(articleName) {
+            alert(`سيتم فتح مقال: ${articleName}`);
+            // Here you would normally redirect to article page
+        }
+        
+        function visitPartner(partnerName) {
+            alert(`سيتم زيارة موقع الشريك: ${partnerName}`);
+            // Here you would normally redirect to partner website
+        }
+        
+        function submitContactForm() {
+            const name = document.getElementById('contact-name').value;
+            const email = document.getElementById('contact-email').value;
+            const subject = document.getElementById('contact-subject').value;
+            const message = document.getElementById('contact-message').value;
+            
+            if (!name || !email || !subject || !message) {
+                alert('يرجى ملء جميع الحقول المطلوبة');
+                return;
+            }
+            
+            alert('تم إرسال رسالتك بنجاح! سنرد عليك في أقرب وقت ممكن.');
+            document.getElementById('contact-name').value = '';
+            document.getElementById('contact-email').value = '';
+            document.getElementById('contact-subject').value = '';
+            document.getElementById('contact-message').value = '';
+        }
+        
+        function submitComplaint() {
+            const name = document.getElementById('complaint-name').value;
+            const email = document.getElementById('complaint-email').value;
+            const phone = document.getElementById('complaint-phone').value;
+            const type = document.getElementById('complaint-type').value;
+            const details = document.getElementById('complaint-details').value;
+            
+            if (!name || !email || !phone || !type || !details) {
+                alert('يرجى ملء جميع الحقول المطلوبة');
+                return;
+            }
+            
+            alert('تم إرسال شكواك بنجاح! رقم التتبع: #' + Math.floor(10000 + Math.random() * 90000));
+            document.getElementById('complaint-name').value = '';
+            document.getElementById('complaint-email').value = '';
+            document.getElementById('complaint-phone').value = '';
+            document.getElementById('complaint-type').value = '';
+            document.getElementById('complaint-details').value = '';
+        }
+        
+        function login() {
+            const email = document.getElementById('login-email').value;
+            const password = document.getElementById('login-password').value;
+            
+            if (!email || !password) {
+                alert('يرجى إدخال البريد الإلكتروني وكلمة المرور');
+                return;
+            }
+            
+            alert('تم تسجيل الدخول بنجاح!');
+            showPage('profile');
+        }
+        
+        function register() {
+            const name = document.getElementById('register-name').value;
+            const email = document.getElementById('register-email').value;
+            const phone = document.getElementById('register-phone').value;
+            const password = document.getElementById('register-password').value;
+            const confirm = document.getElementById('register-confirm').value;
+            const userType = document.getElementById('user-type').value;
+            const terms = document.getElementById('terms').checked;
+            
+            if (!name || !email || !phone || !password || !confirm || !userType) {
+                alert('يرجى ملء جميع الحقول المطلوبة');
+                return;
+            }
+            
+            if (password !== confirm) {
+                alert('كلمة المرور غير متطابقة');
+                return;
+            }
+            
+            if (!terms) {
+                alert('يرجى الموافقة على الشروط والأحكام');
+                return;
+            }
+            
+            alert('تم إنشاء الحساب بنجاح! تم إرسال رسالة التفعيل إلى بريدك الإلكتروني.');
+            showPage('login');
+        }
+        
+        function selectConversation(conversationId) {
+            // Remove active class from all conversations
+            document.querySelectorAll('.conversation').forEach(conv => {
+                conv.classList.remove('active');
+            });
+            
+            // Add active class to selected conversation
+            event.currentTarget.classList.add('active');
+            
+            // Here you would normally load conversation messages
+            alert('تم تحميل المحادثة: ' + conversationId);
+        }
+        
+        function sendMessage() {
+            const input = document.querySelector('.message-input input');
+            const message = input.value.trim();
+            
+            if (!message) {
+                alert('يرجى كتابة رسالة');
+                return;
+            }
+            
+            // Here you would normally send the message
+            alert('تم إرسال الرسالة: ' + message);
+            input.value = '';
+        }
+        
+        // Admin functions
+        function editUser(userId) {
+            alert('سيتم تعديل المستخدم: ' + userId);
+        }
+        
+        function deleteUser(userId) {
+            if (confirm('هل أنت متأكد من حذف هذا المستخدم؟')) {
+                alert('تم حذف المستخدم: ' + userId);
+            }
+        }
+        
+        function suspendUser(userId) {
+            alert('سيتم تعليق المستخدم: ' + userId);
+        }
+        
+        function viewComplaint(complaintId) {
+            alert('سيتم عرض الشكوى: ' + complaintId);
+        }
+        
+        function deleteComplaint(complaintId) {
+            if (confirm('هل أنت متأكد من حذف هذه الشكوى؟')) {
+                alert('تم حذف الشكوى: ' + complaintId);
+            }
+        }
+        
+        function addArticle() {
+            alert('سيتم فتح نموذج إضافة مقال جديد');
+        }
+        
+        function manageProducts() {
+            alert('سيتم الانتقال إلى إدارة المنتجات');
+        }
+        
+        function viewReports() {
+            alert('سيتم عرض التقارير');
+        }
+        
+        function submitSupportRequest() {
+            alert('تم إرسال طلب الدعم بنجاح! سنرد عليك في أقرب وقت ممكن.');
+        }
+        
+        // وظيفة عرض لوحة التحكم
+        function showDashboardPage() {
+            // إخفاء جميع الصفحات
+            document.querySelectorAll('.page').forEach(page => {
+                page.classList.remove('active');
+            });
+            
+            // عرض صفحة لوحة التحكم
+            document.getElementById('dashboard-page').classList.add('active');
+            
+            // إغلاق القائمة الجوال إذا كانت مفتوحة
+            document.getElementById('mobileNav').classList.remove('active');
+            document.getElementById('overlay').classList.remove('active');
+            
+            // التمرير إلى الأعلى
+            window.scrollTo({top: 0, behavior: 'smooth'});
+        }
+        
+        // Dashboard tabs
+        function showDashboardTab(tabId) {
+            // Hide all tabs
+            document.querySelectorAll('.dashboard-tab').forEach(tab => {
+                tab.classList.remove('active');
+            });
+            
+            // Show the selected tab
+            document.getElementById(tabId + '-tab').classList.add('active');
+            
+            // Update active menu item
+            document.querySelectorAll('.sidebar-menu a').forEach(item => {
+                item.classList.remove('active');
+            });
+            event.currentTarget.classList.add('active');
+        }
+        
+        function logout() {
+            if (confirm('هل أنت متأكد من تسجيل الخروج؟')) {
+                alert('تم تسجيل الخروج بنجاح');
+                showPage('home');
+            }
+        }
+        
+        // Initialize the page
+        document.addEventListener('DOMContentLoaded', function() {
+            // Show home page by default
+            showPage('home');
+        });
+    </script>
+</body>
+</html>
